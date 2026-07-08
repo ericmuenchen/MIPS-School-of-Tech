@@ -1,0 +1,14 @@
+/* MIPS Design System — global stylesheet entry point.
+   Michigan International Prep School: maize-and-navy, Poppins + Source Serif Pro.
+   Built to author course syllabi (and other MIPS documents) on brand.
+
+   Editorial policy: use em dashes sparingly. They are fine for the occasional
+   aside or emphasis, but don't lean on them. Prefer a colon, period,
+   parentheses, or "and"/"to". Applies to all tokens, cards, and templates.
+
+   Consumers link THIS one file. Load order: fonts + tokens first, resets last. */
+@import url('tokens/fonts.css');
+@import url('tokens/colors.css');
+@import url('tokens/typography.css');
+@import url('tokens/spacing.css');
+@import url('tokens/base.css');
