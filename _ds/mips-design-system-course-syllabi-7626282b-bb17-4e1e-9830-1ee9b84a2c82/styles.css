@@ -12,3 +12,14 @@
 @import url('tokens/typography.css');
 @import url('tokens/spacing.css');
 @import url('tokens/base.css');
+
+/* Mobile responsiveness for syllabus pages (applies to every page linking this file). */
+@media (max-width: 680px) {
+  body { overflow-x: hidden; }
+  .doc-page { padding: 24px 18px !important; }
+  .syl h1 { font-size: 30px !important; line-height: 1.15 !important; }
+  .syl div[style*="grid-template-columns:repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
+  .syl div[style*="grid-template-columns:repeat(3,1fr)"] > div { border-right: none !important; }
+  .syl div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  .syl-actions { justify-content: center !important; }
+}
