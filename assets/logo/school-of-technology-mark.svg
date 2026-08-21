@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700" width="800" height="700" role="img" aria-label="MIPS School of Technology mark">
+  <title>MIPS School of Technology mark</title>
+  <polygon points="0,350 200,0 600,0 800,350 600,700 200,700" fill="#1E2759"></polygon>
+  <polygon points="60,350 230,53 570,53 740,350 570,647 230,647" fill="none" stroke="#FEE003" stroke-width="36"></polygon>
+  <g fill="none" stroke="#FEE003" stroke-width="15" stroke-linecap="butt">
+    <path d="M118 270 H300 L360 210 H426"></path>
+    <path d="M74 345 H268 L300 313 H326"></path>
+    <path d="M118 430 H350 L383 397 H494"></path>
+    <path d="M155 490 H300 L340 530 H406"></path>
+  </g>
+  <g fill="#1E2759" stroke="#FEE003" stroke-width="15">
+    <circle cx="448" cy="210" r="24"></circle>
+    <circle cx="350" cy="313" r="24"></circle>
+    <circle cx="518" cy="397" r="24"></circle>
+    <circle cx="430" cy="530" r="24"></circle>
+  </g>
+</svg>
