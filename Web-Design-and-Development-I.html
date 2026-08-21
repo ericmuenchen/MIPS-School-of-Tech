@@ -10,6 +10,10 @@
   .doc-page{ max-width:8.5in; margin:0 auto 48px; background:var(--color-white); box-shadow:var(--shadow-lg); border-radius:12px; padding:0.7in; }
   @media print{
     body{ background:var(--color-white); }
+    /* Chrome prints with "Background graphics" OFF by default, which drops the
+       navy panels these documents rely on: white body text and maize labels
+       would land on bare white paper. Force the colours to print. */
+    *, *::before, *::after{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
     /* The page margin has to live on @page: padding on .doc-page only applies
        at the very start and end of the block, so every page after the first
        would start hard against the paper edge. */
@@ -25,7 +29,9 @@
       .syl h2, .syl h3{ break-after:avoid; }
       .syl tr, .syl thead{ break-inside:avoid; }
       .syl table{ break-inside:auto; }
-      .syl div[style*="shadow-md"], .syl div[style*="maize-50"], .syl div[style*="navy-700"], .syl div[style*="navy-50"]{ break-inside:avoid; }
+      /* the tall "What You'll Learn" card is allowed to split; keeping it whole
+         stranded half of page 2 */
+      .syl div[style*="maize-50"], .syl div[style*="navy-700"], .syl div[style*="navy-50"]{ break-inside:avoid; }
     }
     /* School of Technology lockup. Proportions per assets/logo/README.md: every
        dimension is a ratio of --sot-mark-h. Painted with the syllabus navy/maize
