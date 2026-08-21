@@ -24,6 +24,21 @@
       .syl table{ break-inside:auto; }
       .syl div[style*="shadow-md"], .syl div[style*="maize-50"], .syl div[style*="navy-700"], .syl div[style*="navy-50"]{ break-inside:avoid; }
     }
+    /* School of Technology lockup. Proportions per assets/logo/README.md: every
+       dimension is a ratio of --sot-mark-h. Painted with the syllabus navy/maize
+       tokens so its hexagon matches the course mark opposite it exactly. */
+    .sot-lockup{ --sot-mark-h:42px; --sot-u:calc(var(--sot-mark-h) / 438);
+      --sot-hex:var(--color-navy-700); --sot-accent:var(--color-maize-500);
+      display:inline-flex; align-items:center; gap:calc(88 * var(--sot-u));
+      font-family:var(--font-display, Poppins, sans-serif); color:var(--color-navy-700);
+      text-transform:uppercase; line-height:1; }
+    .sot-lockup .sot-badge{ display:block; flex:none; height:var(--sot-mark-h); width:auto; }
+    .sot-lockup .sot-words{ display:flex; flex-direction:column; align-items:flex-start;
+      gap:calc(24 * var(--sot-u)); }
+    .sot-lockup .sot-l1{ font-size:calc(156 * var(--sot-u)); font-weight:400;
+      letter-spacing:0.089em; word-spacing:0.2em; white-space:nowrap; }
+    .sot-lockup .sot-l2{ font-size:calc(148 * var(--sot-u)); font-weight:700;
+      letter-spacing:0.01em; white-space:nowrap; }
 </style>
 </head>
 <body>
@@ -43,8 +58,8 @@
   <div class="syl" style="font:var(--text-body-md);color:var(--color-gray-600);">
 
     <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:10px;margin-bottom:8px;border-bottom:2px solid var(--color-maize-500);">
-      <img src="assets/logo-lockup.png" alt="Michigan International Prep School" style="height:42px;width:auto;">
-      <span style="flex:none;display:inline-flex;align-items:center;gap:10px;"><img src="assets/course-logos/pc-pro-a.svg" alt="" style="height:32px;width:auto;"><span style="flex:none;display:inline-flex;align-items:center;color:var(--color-navy-700);font:var(--text-caption);font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">Course Syllabus</span></span>
+      <span class="sot-lockup"><svg class="sot-badge" viewBox="0 0 800 700" aria-hidden="true" focusable="false"><polygon points="0,350 200,0 600,0 800,350 600,700 200,700" fill="var(--sot-hex)"></polygon><polygon points="60,350 230,53 570,53 740,350 570,647 230,647" fill="none" stroke="var(--sot-accent)" stroke-width="36"></polygon><g fill="none" stroke="var(--sot-accent)" stroke-width="15" stroke-linecap="butt"><path d="M118 270 H300 L360 210 H426"></path><path d="M74 345 H268 L300 313 H326"></path><path d="M118 430 H350 L383 397 H494"></path><path d="M155 490 H300 L340 530 H406"></path></g><g fill="var(--sot-hex)" stroke="var(--sot-accent)" stroke-width="15"><circle cx="448" cy="210" r="24"></circle><circle cx="350" cy="313" r="24"></circle><circle cx="518" cy="397" r="24"></circle><circle cx="430" cy="530" r="24"></circle></g></svg><span class="sot-words"><span class="sot-l1">School of</span><span class="sot-l2">Technology</span></span></span>
+      <span style="flex:none;display:inline-flex;align-items:center;gap:10px;"><img src="assets/course-logos/pc-pro-a.svg" alt="" style="height:44px;width:auto;"><span style="flex:none;display:inline-flex;align-items:center;color:var(--color-navy-700);font:var(--text-caption);font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">Course Syllabus</span></span>
     </div>
 
     <!-- ===== TITLE ===== -->
