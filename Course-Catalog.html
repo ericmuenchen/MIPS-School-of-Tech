@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026–2027 Course Catalog | MIPS School of Technology</title>
+<link rel="stylesheet" href="_ds/mips-design-system-course-syllabi-7626282b-bb17-4e1e-9830-1ee9b84a2c82/styles.css">
+<style>
+  body{ background:var(--color-gray-100); }
+  .doc-page{ max-width:8.5in; margin:0 auto 48px; background:var(--color-white);
+    box-shadow:var(--shadow-lg); border-radius:12px; padding:0.7in; }
+  @media print{
+    body{ background:var(--color-white); }
+    .doc-page{ box-shadow:none; border-radius:0; margin:0; padding:0.7in; max-width:none; }
+    @page{ size:letter; margin:0; }
+    .cat-actions{ display:none !important; }
+  }
+
+  /* ---- running header ---- */
+  .cat-header{ display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding-bottom:12px; margin-bottom:26px; border-bottom:2px solid var(--color-maize-500); }
+  .cat-brand{ display:flex; align-items:center; gap:16px; }
+  .cat-brand img{ height:44px; width:auto; display:block; }
+  .cat-year{ flex:none; font:var(--text-caption); font-size:13px; font-weight:700;
+    letter-spacing:0.1em; text-transform:uppercase; color:var(--color-navy-500); }
+
+  /* School of Technology lockup. Proportions per assets/logo/README.md: every
+     dimension is a ratio of --sot-mark-h. Painted with the catalog navy/maize
+     tokens so its hexagon matches the MIPS hexagon and the course marks. */
+  .sot-lockup{ --sot-mark-h:44px; --sot-u:calc(var(--sot-mark-h) / 438);
+    --sot-hex:var(--color-navy-700); --sot-accent:var(--color-maize-500);
+    display:inline-flex; align-items:center; gap:calc(88 * var(--sot-u));
+    padding-left:16px; border-left:1px solid var(--color-gray-300);
+    font-family:var(--font-display, Poppins, sans-serif); color:var(--color-navy-700);
+    text-transform:uppercase; line-height:1; }
+  .sot-lockup .sot-badge{ display:block; flex:none; height:var(--sot-mark-h); width:auto; }
+  .sot-lockup .sot-words{ display:flex; flex-direction:column; align-items:flex-start;
+    gap:calc(24 * var(--sot-u)); }
+  .sot-lockup .sot-l1{ font-size:calc(156 * var(--sot-u)); font-weight:400;
+    letter-spacing:0.089em; word-spacing:0.2em; white-space:nowrap; }
+  .sot-lockup .sot-l2{ font-size:calc(148 * var(--sot-u)); font-weight:700;
+    letter-spacing:0.01em; white-space:nowrap; }
+
+  /* ---- intro ---- */
+  .cat h1{ font:700 36px/1.15 var(--font-display); letter-spacing:var(--tracking-tight);
+    color:var(--color-ink-900); margin:0 0 16px; }
+  .cat p{ font:400 15px/1.6 var(--font-display); color:var(--color-gray-600);
+    margin:0 0 14px; }
+  .cat strong{ color:var(--color-ink-900); font-weight:600; }
+  .semkey{ margin:18px 0 0; }
+  .semkey div{ font:400 15px/1.6 var(--font-display);
+    color:var(--color-gray-600); margin-bottom:4px; }
+  .cards{ display:flex; flex-direction:column; gap:14px; margin-top:26px; }
+  .card{ display:flex; gap:16px; align-items:flex-start; background:var(--color-gray-100);
+    border-radius:var(--radius-lg); padding:18px 22px; }
+  .card-icon{ flex:none; display:inline-flex; align-items:center; justify-content:center;
+    width:38px; height:38px; border-radius:50%; background:var(--color-maize-500);
+    color:var(--color-navy-700); }
+  .card-title{ font:600 13px var(--font-display); letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--color-navy-500); margin-bottom:4px; }
+  .card p{ margin:0; font-size:15px; }
+
+  /* ---- tracks ---- */
+  .track{ margin-top:44px; }
+  .track-first{ break-before:page; margin-top:0; }
+  .track-label{ font:600 12px var(--font-display); letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--color-navy-500); break-after:avoid; }
+  .track h2{ font:700 30px/1.15 var(--font-display); letter-spacing:var(--tracking-tight);
+    color:var(--color-navy-700); margin:2px 0 10px; padding-bottom:12px;
+    border-bottom:2px solid var(--color-navy-700); break-after:avoid; }
+  .track-note{ margin:0 0 4px; break-after:avoid; }
+
+  /* ---- course entry ---- */
+  .course{ display:flex; gap:18px; align-items:flex-start; margin-top:26px;
+    break-inside:avoid; }
+  .track > .track-label{ break-before:auto; }
+  .course-mark{ flex:none; height:46px; width:auto; display:block; margin-top:2px; }
+  .course-body{ flex:1; min-width:0; }
+  .formerly{ font:italic 400 14px var(--font-display); color:var(--color-navy-500);
+    margin-bottom:2px; }
+  .course-head{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:10px; }
+  .course-head h3{ font:700 24px/1.2 var(--font-display); letter-spacing:var(--tracking-tight);
+    color:var(--color-ink-900); margin:0; }
+  .pill{ flex:none; display:inline-flex; align-items:center; border-radius:var(--radius-pill);
+    font:600 12px var(--font-display); letter-spacing:0.05em; text-transform:uppercase;
+    padding:5px 13px; }
+  .pill-sem{ background:var(--color-maize-500); color:var(--color-navy-700); }
+  .pill-grades{ background:var(--color-navy-700); color:var(--color-white); }
+  .prereq{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:0 0 10px; }
+  .prereq-tag{ flex:none; display:inline-flex; align-items:center; border-radius:var(--radius-pill);
+    border:1.5px solid var(--color-navy-700); color:var(--color-navy-700);
+    font:600 11px var(--font-display); letter-spacing:0.06em; text-transform:uppercase;
+    padding:4px 12px; }
+  .prereq-text{ font:400 15px/1.6 var(--font-display); color:var(--color-gray-600); }
+  .course-body p{ margin:0 0 10px; }
+  .course-body p:last-child{ margin-bottom:0; }
+
+  /* ---- footer ---- */
+  .cat-footer{ margin-top:44px; padding-top:14px; border-top:1px solid var(--color-gray-300);
+    text-align:right; font:400 15px/1.6 var(--font-display); color:var(--color-gray-600); }
+  .cat-footer a{ color:var(--color-navy-700); font-weight:700; text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="cat-actions" style="display:flex;flex-wrap:wrap;align-items:center;gap:12px;max-width:8.5in;margin:32px auto 20px;padding:0 4px;">
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--color-navy-700);font:var(--text-body-sm);font-weight:700;font-family:var(--font-display, Poppins, sans-serif);border:2px solid var(--color-navy-700);padding:8px 18px;border-radius:var(--radius-pill);text-decoration:none;">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
+    Return to School of Technology
+  </a>
+  <button type="button" onclick="window.print()" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-navy-700);color:var(--color-white);font:var(--text-body-sm);font-weight:700;font-family:var(--font-display, Poppins, sans-serif);border:none;padding:10px 20px;border-radius:var(--radius-pill);cursor:pointer;">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg>
+    Download as PDF
+  </button>
+</div>
+
+<div class="doc-page">
+  <div class="cat">
+
+    <div class="cat-header">
+      <div class="cat-brand">
+        <img src="assets/logo-lockup.png" alt="Michigan International Prep School">
+        <span class="sot-lockup"><svg class="sot-badge" viewBox="0 0 800 700" aria-hidden="true" focusable="false"><polygon points="0,350 200,0 600,0 800,350 600,700 200,700" fill="var(--sot-hex)"></polygon><polygon points="60,350 230,53 570,53 740,350 570,647 230,647" fill="none" stroke="var(--sot-accent)" stroke-width="36"></polygon><g fill="none" stroke="var(--sot-accent)" stroke-width="15" stroke-linecap="butt"><path d="M118 270 H300 L360 210 H426"></path><path d="M74 345 H268 L300 313 H326"></path><path d="M118 430 H350 L383 397 H494"></path><path d="M155 490 H300 L340 530 H406"></path></g><g fill="var(--sot-hex)" stroke="var(--sot-accent)" stroke-width="15"><circle cx="448" cy="210" r="24"></circle><circle cx="350" cy="313" r="24"></circle><circle cx="518" cy="397" r="24"></circle><circle cx="430" cy="530" r="24"></circle></g></svg><span class="sot-words"><span class="sot-l1">School of</span><span class="sot-l2">Technology</span></span></span>
+      </div>
+      <span class="cat-year">2026–2027 Academic Year</span>
+    </div>
+
+    <h1>School of Technology Course Catalog</h1>
+    <p>Prepare for the future through hands-on technology courses that build real world skills in programming, cybersecurity, information technology, web development, and artificial intelligence. Whether you're exploring technology for the first time or preparing for an industry certification exam, there's a pathway designed for you.</p>
+    <p>Every course is <strong>one semester long</strong> and <strong>asynchronous</strong>, allowing students to work at a pace that fits their schedule. Students choose when during the week they work and may work ahead, but each course has weekly pacing targets and must be completed by the end of the semester. Plan on about 45 minutes of coursework every school day.</p>
+    <p>Two <strong>recommended 30-minute video sessions</strong> are held every Friday, one for grades 6–8 and one for grades 9–12, open to students in any course. They are not required — they are time to share projects, connect with other students, and build community around emerging technology. For help with coursework, students should visit instructor office hours on Monday, Tuesday, and Thursday from 9:00 to 10:30 a.m.</p>
+    <p>Each course listing includes its semester availability.</p>
+    <div class="semkey">
+      <div><strong>S1</strong> – offered only during Fall semester.</div>
+      <div><strong>S2</strong> – offered only during Winter semester.</div>
+      <div><strong>S1 or S2</strong> – offered during either semester.</div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <span class="card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m2 7 10 6 10-6"></path></svg></span>
+        <div>
+          <div class="card-title">Questions? Get in touch</div>
+          <p>Eric Muenchen · <strong>muenchen@miprepschool.org</strong><br>
+          See the <strong>School of Technology Program Guide</strong> for pacing, support, and expectations.</p>
+        </div>
+      </div>
+      <div class="card">
+        <span class="card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg></span>
+        <div>
+          <div class="card-title">About certification exams</div>
+          <p>Certification exams are administered by CompTIA and TestOut, scheduled separately from the course, and paid for by the student or family. The instructor can help students prepare and register.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="track track-first">
+      <div class="track-label">Track</div>
+      <h2>Foundations of Programming</h2>
+
+      <article class="course">
+        <img class="course-mark" src="assets/course-logos/exploring-technology-and-art.svg" alt="">
+        <div class="course-body">
+          <div class="formerly">Formerly Exploring Tech I</div>
+          <div class="course-head">
+            <h3>Exploring Technology and Art</h3>
+            <span class="pill pill-sem">S1</span>
+            <span class="pill pill-grades">Grades 6–12</span>
+          </div>
+          <p>Combine creativity with computer science to build your own interactive games and music. You'll begin using Code.org's Game Lab environment to program shapes, sprites, and animations, handle user input, and use variables and conditionals to turn simple images into complex, multi-level games.</p>
+          <p>Then you'll explore foundational programming concepts through music, using code to build, remix, and perform original songs. Through sequencing, loops, and functions, you'll practice computational thinking like pattern recognition, algorithmic thinking, and debugging to design, test, and refine your musical ideas.</p>
+        </div>
+      </article>
+      <article class="course">
+        <img class="course-mark" src="assets/course-logos/intro-to-python.svg" alt="">
+        <div class="course-body">
+          <div class="formerly">Formerly Exploring Tech II</div>
+          <div class="course-head">
+            <h3>Intro to Python</h3>
+            <span class="pill pill-sem">S2</span>
+            <span class="pill pill-grades">Grades 6–12</span>
+          </div>
+          <p>An introduction to the fundamentals of computer science through visual programming and text-based logic. In CodeHS you'll master top-down design, functions, and decomposition to solve grid-based puzzles and build a strong foundation in algorithmic thinking and problem-solving.</p>
+          <p>As you transition to standard Python, you'll manage data with variables, user input, and mathematical operators, then master control structures including if/else statements and logical operators. The course concludes with looping and nested logic, where you'll build interactive projects like a Mad Libs generator, a Quiz Game, and a Password Authenticator.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="track">
+      <div class="track-label">Track</div>
+      <h2>Cybersecurity</h2>
+
+      <article class="course">
+        <img class="course-mark" src="assets/course-logos/intro-to-cybersecurity.svg" alt="">
+        <div class="course-body">
+          <div class="course-head">
+            <h3>Intro to Cybersecurity</h3>
+            <span class="pill pill-sem">S1 or S2</span>
+            <span class="pill pill-grades">Grades 7–12</span>
+          </div>
+          <p>Build, manage, and protect a secure business network. You'll master identity management, controlling user access on Windows and Linux and enforcing strong password policies, then get hands-on with network hardening by installing firewalls and setting up VPNs for secure remote connections.</p>
+          <p>Beyond hardware, you'll defend computers with antivirus software, application whitelisting, and file permissions, and protect data through encryption and critical backups. To keep systems safe over time, you'll run vulnerability scans, monitor system logs, and analyze network attacks to stop threats before they cause damage.</p>
+        </div>
+      </article>
+      <article class="course">
+        <img class="course-mark" src="assets/course-logos/ethical-hacker.svg" alt="">
+        <div class="course-body">
+          <div class="course-head">
+            <h3>Ethical Hacker</h3>
+            <span class="pill pill-sem">S1 or S2</span>
+            <span class="pill pill-grades">Grades 7–12</span>
+          </div>
+          <p>Learn the professional process used to test and secure modern digital networks. Starting with the “Prepare” and “Reconnaissance” phases, you'll use operating-system tools and specialized software to find devices on a network, including wireless and IoT hardware, then perform vulnerability scans and enumeration to find open ports and active users.</p>
+          <p>As you progress, you'll practice gaining access by cracking passwords, using social engineering, and exploiting web vulnerabilities like SQL injection. You'll pick up post-exploitation skills such as privilege escalation and session hijacking, and study how attackers cover their tracks, while learning to defend systems with honeypots and intrusion detection systems (IDS).</p>
+        </div>
+      </article>
+      <article class="course">
+        <img class="course-mark" src="assets/course-logos/cyberdefense-pro.svg" alt="">
+        <div class="course-body">
+          <div class="course-head">
+            <h3>CyberDefense Pro</h3>
+            <span class="pill pill-sem">S1 or S2</span>
+            <span class="pill pill-grades">Grades 9–12</span>
+          </div>
+          <div class="prereq"><span class="prereq-tag">Prerequisite</span><span class="prereq-text">Pass Intro to Cybersecurity or Ethical Hacker first.</span></div>
+          <p>An advanced course that prepares you for a career as a cybersecurity analyst. You'll detect and respond to modern threats by mastering vulnerability management, threat hunting, and network security, using professional tools like SIEMs and protocol analyzers to monitor traffic, identify indicators of compromise, and defend against attacks like SQL injection and ransomware.</p>
+          <p>With an emphasis on incident response and digital forensics, you'll learn to contain breaches and analyze evidence, and explore specialized security for cloud, wireless, and IoT systems, all while preparing for the CompTIA CySA+ (CS0-003) and TestOut CyberDefense Pro certification exams.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="track">
+      <div class="track-label">Track</div>
+      <h2>IT &amp; Hardware</h2>
+      <p class="track-note">This track is a strict three-course sequence: IT Fundamentals, then PC Pro A, then PC Pro B.</p>
+
+      <article class="course">
+        <img class="course-mark" src="assets/course-logos/it-fundamentals.svg" alt="">
+        <div class="course-body">
+          <div class="course-head">
+            <h3>IT Fundamentals</h3>
+            <span class="pill pill-sem">S1 or S2</span>
+            <span class="pill pill-grades">Grades 7–12</span>
+          </div>
+          <p>A broad introduction to the modern world of technology, preparing you for the CompTIA Tech+ certification exam. You'll start with computing basics, data privacy, and internet technologies, then cover the essential networking and cybersecurity concepts that keep data moving safely across the globe.</p>
+          <p>From there you'll dive into hardware, software, and databases to understand how computers are built and store information, get a head start in coding and logic, and look ahead at emerging technologies including AI, robotics, and virtual reality.</p>
+        </div>
+      </article>
+      <article class="course">
+        <img class="course-mark" src="assets/course-logos/pc-pro-a.svg" alt="">
+        <div class="course-body">
+          <div class="course-head">
+            <h3>PC Pro A</h3>
+            <span class="pill pill-sem">S1</span>
+            <span class="pill pill-grades">Grades 9–12</span>
+          </div>
+          <div class="prereq"><span class="prereq-tag">Prerequisite</span><span class="prereq-text">Pass IT Fundamentals first.</span></div>
+          <p>A comprehensive introduction to IT that prepares you for industry certification exams like TestOut PC Pro and CompTIA A+. You'll learn the core responsibilities of a PC technician, using professional ticketing systems, managing documentation, and following safety and maintenance procedures.</p>
+          <p>The focus is hands-on hardware: installing, configuring, and troubleshooting motherboards, processors, and power supplies. You'll explore Windows, Linux, and macOS, manage storage systems like RAID and partitioning, and master system implementation by performing full Windows installations and building virtual machines.</p>
+        </div>
+      </article>
+      <article class="course">
+        <img class="course-mark" src="assets/course-logos/pc-pro-b.svg" alt="">
+        <div class="course-body">
+          <div class="course-head">
+            <h3>PC Pro B</h3>
+            <span class="pill pill-sem">S2</span>
+            <span class="pill pill-grades">Grades 9–12</span>
+          </div>
+          <div class="prereq"><span class="prereq-tag">Prerequisite</span><span class="prereq-text">Pass PC Pro A first.</span></div>
+          <p>The advanced skills needed to manage and protect a professional IT environment. You'll master Windows and Linux management through system tools, scripting, and the command line, including managing users in Active Directory, setting up VPNs for remote work, and performing critical data backups.</p>
+          <p>You'll also explore networking and mobile support, configuring secure Wi-Fi and troubleshooting devices from laptops to 3D printers, then finish with a focus on cybersecurity: configuring firewalls, blocking malware, and defending against social engineering to keep an organization's data safe.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="track">
+      <div class="track-label">Track</div>
+      <h2>Web Design and Development</h2>
+
+      <article class="course">
+        <img class="course-mark" src="assets/course-logos/web-design-and-development-i.svg" alt="">
+        <div class="course-body">
+          <div class="course-head">
+            <h3>Web Design and Dev I</h3>
+            <span class="pill pill-sem">S1</span>
+            <span class="pill pill-grades">Grades 7–12</span>
+          </div>
+          <p>Learn the foundational skills to create, style, and publish your own professional websites. You'll explore how web pages are developed and delivered across the globe, then start building right away with HTML, mastering tags, attributes, and elements to structure pages with images, hyperlinks, and data tables.</p>
+          <p>Next you'll style your creations with CSS, using selectors and classes to manage layout, color, and fonts and understanding how the “cascade” sets visual priority. You'll design a live homepage portfolio from scratch, then finish with advanced techniques: divs and spans for precise layout, embedded media through iframes, and CSS animations that make sites dynamic.</p>
+        </div>
+      </article>
+      <article class="course">
+        <img class="course-mark" src="assets/course-logos/web-design-and-development-ii.svg" alt="">
+        <div class="course-body">
+          <div class="course-head">
+            <h3>Web Design and Dev II</h3>
+            <span class="pill pill-sem">S2</span>
+            <span class="pill pill-grades">Grades 7–12</span>
+          </div>
+          <div class="prereq"><span class="prereq-tag">Prerequisite</span><span class="prereq-text">Pass Web Design and Dev I first.</span></div>
+          <p>Transition from basic page construction to building professional, responsive, user-centered experiences. You'll start with the Bootstrap framework, using open-source components and grid systems to create mobile-responsive layouts that adapt to any screen, while practicing how to read and implement real technical documentation.</p>
+          <p>The focus then shifts to UI and UX design: researching stakeholder needs, defining clear problem statements, rapid prototyping from paper sketches to digital solutions, and user testing with peers. The course concludes with a comprehensive final project where you design, prototype, and develop a website from scratch.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="track">
+      <div class="track-label">Track</div>
+      <h2>Emerging Technology</h2>
+
+      <article class="course">
+        <img class="course-mark" src="assets/course-logos/artificial-intelligence.svg" alt="">
+        <div class="course-body">
+          <div class="course-head">
+            <h3>Artificial Intelligence</h3>
+            <span class="pill pill-sem">S1 or S2</span>
+            <span class="pill pill-grades">Grades 9–12</span>
+          </div>
+          <p>AI Foundations introduces you to the core principles of computer science and the growing role of artificial intelligence in everyday life. Through hands-on programming, visual problem solving, and critical analysis, you'll explore how computing systems work, how data powers AI, and how intelligent tools make decisions.</p>
+          <p>The semester moves through six units: Problem Solving with AI, Foundations of AI Programming, AI and the Systems That Power It, The Fabric of the Internet and AI, AI-Powered Threats and Defenses, and Insights from Data and AI. Each one builds real skills, from writing Python to analyzing cybersecurity risks, and ends with a project where you apply what you've learned.</p>
+        </div>
+      </article>
+    </section>
+
+    <div class="cat-footer">Questions? <a href="mailto:muenchen@miprepschool.org">muenchen@miprepschool.org</a></div>
+
+  </div>
+</div>
+</body>
+</html>
