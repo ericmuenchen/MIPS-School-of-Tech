@@ -15,6 +15,17 @@
        navy grade pills lose their fill and their white text lands on white
        paper, and the maize semester pills go pale. Force the colours. */
     *, *::before, *::after{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    /* Ink-light printing: the filled navy and maize pills and the maize discs
+       become outlines, so a seven-page catalog does not empty a cartridge.
+       Borders and text colour carry the design instead of fills. */
+    .pill{ padding:3.5px 11.5px !important; }   /* offset the added border so the
+                                                   outlined pill keeps the filled
+                                                   pill's box and the page count */
+    .pill-grades, .pill-sem{ background:var(--color-white) !important;
+      color:var(--color-navy-700) !important;
+      border:1.5px solid var(--color-navy-700) !important; }
+    .card-icon{ background:var(--color-white) !important;
+      border:1.5px solid var(--color-navy-700) !important; }
     /* The page margin has to live on @page: padding on .doc-page only applies
        at the very start and end of the block, so every page after the first
        would start hard against the paper edge. */
