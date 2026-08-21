@@ -10,8 +10,11 @@
   .doc-page{ max-width:8.5in; margin:0 auto 48px; background:var(--color-white); box-shadow:var(--shadow-lg); border-radius:12px; padding:0.7in; }
   @media print{
     body{ background:var(--color-white); }
-    .doc-page{ box-shadow:none; border-radius:0; margin:0; padding:0.7in; max-width:none; }
-    @page{ size:letter; margin:0; }
+    /* The page margin has to live on @page: padding on .doc-page only applies
+       at the very start and end of the block, so every page after the first
+       would start hard against the paper edge. */
+    .doc-page{ box-shadow:none; border-radius:0; margin:0; padding:0; max-width:none; }
+    @page{ size:letter; margin:0.7in; }
   }
     .syl h2{ text-wrap:balance; }
     .syl p, .syl li, .syl td{ text-wrap:pretty; }
