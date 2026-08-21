@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 176" role="img" aria-label="Web Design and Development II course mark">
+  <title>Web Design and Development II</title>
+  <polygon points="50,4 150,4 200,88 150,172 50,172 0,88" fill="#02225A"></polygon>
+  <polygon points="64,27.5 136,27.5 172,88 136,148.5 64,148.5 28,88" fill="none" stroke="#FFE000" stroke-width="10"></polygon>
+  <g transform="translate(66.4,54.4) scale(2.8)" fill="none" stroke="#FFE000" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2.6" y="3.4" width="18.8" height="17.2" rx="1.8"></rect><path d="M2.6 7.8 H21.4"></path><circle cx="5.6" cy="5.6" r="0.85" fill="#FFE000" stroke="none"></circle><circle cx="8.4" cy="5.6" r="0.85" fill="#FFE000" stroke="none"></circle><rect x="5.4" y="10.6" width="5.4" height="7.2" rx="0.7"></rect><path d="M13.4 11.4 H18.6 M13.4 14.4 H18.6 M13.4 17.4 H16.6"></path>
+  </g>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 176" role="img" aria-label="CyberDefense Pro course mark">
+  <title>CyberDefense Pro</title>
+  <polygon points="50,4 150,4 200,88 150,172 50,172 0,88" fill="#02225A"></polygon>
+  <polygon points="64,27.5 136,27.5 172,88 136,148.5 64,148.5 28,88" fill="none" stroke="#FFE000" stroke-width="10"></polygon>
+  <g transform="translate(66.4,54.4) scale(2.8)" fill="none" stroke="#FFE000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2.8 L20 6 V12 C20 16.8 12 21.2 12 21.2 C12 21.2 4 16.8 4 12 V6 Z"></path><path d="M8.4 11.6 L11 14.2 L15.8 9.4"></path>
+  </g>
+</svg>

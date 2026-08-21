@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 176" role="img" aria-label="Artificial Intelligence course mark">
+  <title>Artificial Intelligence</title>
+  <polygon points="50,4 150,4 200,88 150,172 50,172 0,88" fill="#02225A"></polygon>
+  <polygon points="64,27.5 136,27.5 172,88 136,148.5 64,148.5 28,88" fill="none" stroke="#FFE000" stroke-width="10"></polygon>
+  <g transform="translate(66.4,54.4) scale(2.8)" fill="none" stroke="#FFE000" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10.6 3.2 L12.7 9.1 L18.6 11.2 L12.7 13.3 L10.6 19.2 L8.5 13.3 L2.6 11.2 L8.5 9.1 Z"></path><path d="M18.4 16.2 L19.2 18.4 L21.4 19.2 L19.2 20 L18.4 22.2 L17.6 20 L15.4 19.2 L17.6 18.4 Z"></path>
+  </g>
+</svg>

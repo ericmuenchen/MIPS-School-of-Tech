@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 176" role="img" aria-label="IT Fundamentals course mark">
+  <title>IT Fundamentals</title>
+  <polygon points="50,4 150,4 200,88 150,172 50,172 0,88" fill="#02225A"></polygon>
+  <polygon points="64,27.5 136,27.5 172,88 136,148.5 64,148.5 28,88" fill="none" stroke="#FFE000" stroke-width="10"></polygon>
+  <g transform="translate(66.4,54.4) scale(2.8)" fill="none" stroke="#FFE000" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="6.5" y="6.5" width="11" height="11" rx="1.4"></rect><rect x="10" y="10" width="4" height="4" rx="0.6"></rect><path d="M9.5 3.4 V6.5 M14.5 3.4 V6.5 M9.5 17.5 V20.6 M14.5 17.5 V20.6 M3.4 9.5 H6.5 M3.4 14.5 H6.5 M17.5 9.5 H20.6 M17.5 14.5 H20.6"></path>
+  </g>
+</svg>
