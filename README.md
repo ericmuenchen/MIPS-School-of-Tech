@@ -34,7 +34,7 @@ stylesheet path and the landing-page bundle.
   the design system, print rules, known gaps, and how to ship a change. Start here.
 - **[`CLAUDE.md`](CLAUDE.md)** — the short operating brief, loaded automatically
   by Claude Code.
-- **`_ds/mips-design-system-course-syllabi-*/readme.md`** — the brand bible:
+- **`_ds/mips-design-system/readme.md`** — the brand bible:
   colour, type, voice, and syllabus authoring rules.
 
 ## Before you edit

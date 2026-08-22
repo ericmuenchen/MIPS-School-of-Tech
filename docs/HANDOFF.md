@@ -63,8 +63,7 @@ otherwise hide it and every syllabus would lose its stylesheet.
 | `<Course-Name>.html` | Ten course syllabi, one file each, hand-authored. |
 | `2026-2027-Course-Catalog.pdf` | PDF catalog, offered as a download. |
 | `School-of-Technology-Program-Guide.pdf` | Program guide, offered as a download. |
-| `_ds/mips-design-system-course-syllabi-7626282b-…/` | The design system every syllabus links to. |
-| `_ds/mips-design-system-6fe64d3a-…/` | The parent design system, in full source. Behind `index.html`; not linked at runtime. |
+| `_ds/mips-design-system/` | The design system, in full source. Every syllabus and the catalog link its `styles.css`. |
 | `assets/logo/` | School of Technology lockup, reversed lockup, standalone mark. |
 | `assets/course-logos/` | Eleven per-course hexagon marks. |
 | `assets/logo-lockup.png` | The MIPS parent-school lockup. |
@@ -121,7 +120,7 @@ Course fields: `title`, `semester`, `grades`, `syllabus`, and the optional
 `Course-Catalog.html` and the ten `<Course-Name>.html` files are ordinary,
 readable, hand-authored HTML. Each one:
 
-- links the design system: `<link rel="stylesheet" href="_ds/mips-design-system-course-syllabi-7626282b-…/styles.css">`
+- links the design system: `<link rel="stylesheet" href="_ds/mips-design-system/styles.css">`
 - wraps content in `.doc-page` — an 8.5in-wide sheet with 0.7in padding
 - carries a substantial, well-commented `@media print` block
 
@@ -129,29 +128,48 @@ Edit these directly. They are the easy files.
 
 ---
 
-## 3. The design systems
+## 3. The design system
 
-There are **two**, and they serve the two kinds of page in §2.
+One system, in full source, at **`_ds/mips-design-system/`**. Link one file:
 
-| Directory | Namespace | Serves | State |
-| --- | --- | --- | --- |
-| `_ds/mips-design-system-6fe64d3a-…/` | `MIPSDesignSystem_6fe64d` | `index.html`, the landing page | **Full source** — components, guidelines, tokens, marketing-site template, `SKILL.md` |
-| `_ds/mips-design-system-course-syllabi-7626282b-…/` | `DesignSystem_762628` | the syllabi and catalog | **Compiled only** — see §5.8 |
+```html
+<link rel="stylesheet" href="_ds/mips-design-system/styles.css">
+```
 
-The syllabi one is the derived system: it was built from the reference syllabus
-and copied the parent's tokens, fonts, and brand rules verbatim, then narrowed
-the component set to the document vocabulary (`AccentRule`, `Badge`, `Button`,
-`IconSwatch`, `InfoCard`). The parent carries a fuller UI kit — forms, feedback,
-navigation — that the site does not currently use.
+That is the only runtime dependency — it imports the five token files in order.
+Read `readme.md` in that folder; it is the brand bible, and its colour values are
+verified against `tokens/colors.css`.
 
-Both declare the same 74 tokens, so the colour, type, and spacing rules below
-hold across both. In each, `styles.css` is the single entry point and imports
-every token file, and `readme.md` is the brand bible — the syllabi system's is
-the more thorough of the two and the one to read first.
+It was consolidated from two Claude Design projects that had diverged:
 
-Only the syllabi system is linked by any page. The parent is in the repo as
-**source**, so the landing page can be edited and re-exported; nothing loads it
-at runtime.
+| Source project | Covered | Fate in the merge |
+| --- | --- | --- |
+| `6fe64d3a` "MIPS Design System" | `index.html`, marketing surfaces | Base layer: the fuller UI kit (forms, feedback, navigation, `Card`) and the marketing-site template |
+| `7626282b` "…— Course Syllabi" | the syllabi and catalog | Overlaid on top and **wins every conflict** |
+
+The syllabi project was the derived, newer one: same 74 tokens byte-for-byte,
+same five `@import`s in `styles.css`, but more developed components and specimen
+cards. Where the two disagreed, it was right — most importantly on colour, where
+the parent's readme claimed `#1B2A63` navy and `#FFE200` maize while its own
+token files said `#02225A` and `#FFE000`. The merged readme carries only the
+verified values.
+
+What the merge contains: 15 components (the document vocabulary — `AccentRule`,
+`Badge`, `Button`, `IconSwatch`, `InfoCard` — plus `Card`, forms, feedback, and
+navigation), 15 guideline cards, 2 templates, the academic calendar, and 74
+tokens. Forms, feedback, and navigation are unused by the current site; they are
+the sanctioned versions should those surfaces ever be built.
+
+**No page uses the JSX components at runtime.** The syllabi are hand-authored
+HTML with inline styles, and `index.html` bundles its own copies. The components
+are source and reference material.
+
+Two artefacts were deliberately dropped: `_ds_bundle.js` (the two projects'
+compiled bundles carried conflicting namespaces, so shipping either would have
+been a lie) and the per-project canvas thumbnails. `_ds_manifest.json` was
+rebuilt by hand and every path in it verified against disk. Both the bundle and
+`_adherence.oxlintrc.json` should be regenerated by Claude Design on the next
+export of the consolidated project.
 
 ### Tokens that matter
 
@@ -251,33 +269,17 @@ Real, verified, and worth fixing. None are blocking.
 
 7. **No icon set of MIPS's own.** Lucide is a flagged substitution throughout.
 
-8. **The syllabi design system is compiled output, not source.** Of the two
-   systems in `_ds/` (§3), the **course-syllabi** one
-   (`…-course-syllabi-7626282b-…`) contains only `styles.css`, `tokens/`, and
-   the compiled `_ds_bundle.js`. Its own `readme.md` and `_ds_manifest.json`
-   describe fifteen files that are **not present**:
+8. **The syllabus template is behind the shipped syllabi.**
+   `_ds/mips-design-system/templates/syllabus/Syllabus.dc.html` still uses the
+   MIPS parent lockup rather than the School of Technology mark, carries no
+   course mark, has none of the print work (forced background colours,
+   ink-light printing, page margins), and still calls the weekly meetup
+   "optional" rather than recommended. Its six `<h2>` sections still match, so
+   the drift is in the detail, not the shape.
 
-   - `components/core/{AccentRule,Badge,Button,IconSwatch,InfoCard}.jsx`
-   - `guidelines/*.card.html` (seven specimen cards)
-   - `templates/syllabus/Syllabus.dc.html` — the syllabus template
-   - `calendar/calendar.card.html`, and with it
-     `calendar/calendar-2026-2027.json` and `calendar/calendar.md`
-   - `SKILL.md`, the Agent-Skill wrapper
-
-   Consequence: the syllabi and catalog **render** correctly — the compiled
-   bundle and the CSS tokens are all those pages need — but that system cannot
-   be **edited or extended** from this repository, and the two artefacts the
-   authoring rules depend on (the syllabus template and the academic-year week
-   grid) are unavailable.
-
-   The parent system (`…-6fe64d3a-…`) *is* complete here, and it supplies
-   `Badge`, `Button`, and `IconSwatch` in full source. Only `AccentRule` and
-   `InfoCard` — the two components unique to the syllabi vocabulary — plus the
-   syllabus template and the calendar have no source anywhere in the repo.
-
-   **Fix:** export design-system project `7626282b-bb17-4e1e-9830-1ee9b84a2c82`
-   ("MIPS Design System — Course Syllabi") the same way `6fe64d3a` was
-   exported, and unpack it over its existing `_ds/` directory.
+   Treat it as historical. **To author a new syllabus, copy the closest shipped
+   `<Course-Name>.html`** — those are the current reference. Re-derive the
+   template from a current syllabus before using it as a starting point again.
 
 ---
 
@@ -298,8 +300,9 @@ stylesheet path and the bundle unpack.
 
 1. Author the syllabus by copying the closest existing `<Course-Name>.html`.
    Name the new file in Title-Case with hyphens, matching the existing files.
-   (The design system's `Syllabus.dc.html` template is *not* in this repo —
-   see §5.8 — so copying a sibling file is the only route that works here.)
+   (The design system's `Syllabus.dc.html` template is in the repo but behind
+   the shipped syllabi — see §5.8 — so copying a sibling file is the better
+   route.)
 2. Add the course mark to `assets/course-logos/` as a `viewBox="0 0 200 176"`
    SVG, navy `#02225A` hexagon with a maize `#FFE000` inner outline, named as a
    lowercase hyphenated slug.
@@ -315,10 +318,9 @@ From the design system readme, and fixed for every MIPS syllabus:
 - **One semester per syllabus** — Fall (S1, 18 instructional weeks) or Winter
   (S2, 20 weeks). Fit the content to that semester's week grid, inserting each
   break (Labor Day, Thanksgiving, Winter, Spring, State Testing,
-  Presidents'/Memorial Day) as a "no new lessons" row. The machine-readable
-  week grid (`calendar/calendar-2026-2027.json`) lives in the design system
-  project, not in this repo (§5.8); until it is exported here, take the dates
-  from an existing syllabus's schedule table.
+  Presidents'/Memorial Day) as a "no new lessons" row. The week grids are in
+  the repo: `_ds/mips-design-system/calendar/calendar-2026-2027.json`
+  (structured) and `calendar.md` (readable).
 - **Instructor is always Eric Muenchen**, `muenchen@miprepschool.org`.
 - **Never invent a grading scale.** If one is not supplied, ask for it.
 
@@ -369,26 +371,24 @@ account's Claude Design workspace, carrying the accumulated edits that turned
 that generic template into the current `index.html`. Rebuilding from source is
 possible; resuming the old canvas is not.
 
-**2. The syllabi design system source.** See §5.8. Still outstanding: export
-project `7626282b-…` before switching, and this stops being an issue.
+**2. Nothing else.** Both design-system projects have been exported and merged
+into `_ds/mips-design-system/` (§3), so the whole system — components, tokens,
+guidelines, calendar, both templates — is in git and travels with the repo.
 
 ### Do this before switching
 
-1. **Export design-system project `7626282b-…` into the repo** — the fifteen
-   files listed in §5.8, at the paths `_ds_manifest.json` already expects. This
-   is the last piece; the parent system `6fe64d3a-…` is already done.
-2. **Decide what happens to the landing page.** Either re-create the canvas in
+1. **Decide what happens to the landing page.** Either re-create the canvas in
    the new account from `MarketingSite.dc.html` plus the current `index.html`,
    or re-author the page as plain HTML. Given that every other page in this
    repo is hand-authored HTML, re-authoring the landing page to match is a
    reasonable simplification, not a downgrade — and it would retire the
    "never hand-edit this file" rule entirely.
-3. **Re-authorise GitHub on the new account** for
+2. **Re-authorise GitHub on the new account** for
    `ericmuenchen/MIPS-School-of-Tech`, and confirm the account can push.
-4. **Check Settings → Pages still points at `main`** from the repository root.
+3. **Check Settings → Pages still points at `main`** from the repository root.
    Pages belongs to the GitHub repository, not to any Claude account, so it
    should be unaffected — confirm rather than assume.
-5. **Carry nothing else by hand.** Conversation history and Project knowledge
+4. **Carry nothing else by hand.** Conversation history and Project knowledge
    in the old account are not worth migrating; this document is the handoff.
    If something in the old account turns out to matter, it belongs in this
    repo — add it here rather than recreating it as Project knowledge.
