@@ -28,8 +28,11 @@ it every syllabus loses its stylesheet.
 - `Course-Catalog.html`, `<Course-Name>.html` — plain hand-authored HTML. Edit
   these freely. Each links `_ds/mips-design-system-course-syllabi-7626282b-…/styles.css`
   and wraps content in `.doc-page` (8.5in, 0.7in padding).
-- `_ds/mips-design-system-course-syllabi-7626282b-…/` — design system. Its
-  `readme.md` is the brand bible.
+- `_ds/mips-design-system-course-syllabi-7626282b-…/` — the design system the
+  syllabi link to. Compiled output only; its `readme.md` is the brand bible.
+- `_ds/mips-design-system-6fe64d3a-…/` — the parent design system in full
+  source (components, guidelines, marketing-site template). Behind
+  `index.html`; **no page loads it at runtime**, so never link it.
 - `assets/logo/`, `assets/course-logos/` — vector brand marks, each with a README.
 
 ## Brand

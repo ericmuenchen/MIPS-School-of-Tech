@@ -1,0 +1,64 @@
+<!-- @dsCard group="Components" viewport="700x300" name="Buttons, Cards, Badges" subtitle="Pill buttons, soft-shadow cards, badges" -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../../styles.css">
+<script src="../../_ds_bundle.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>body{margin:0;padding:20px;background:#fff;}</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Button, Card, Badge, IconSwatch } = window.MIPSDesignSystem_6fe64d;
+
+function toPascalCase(name) {
+  return name.split('-').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join('');
+}
+function Lucide({ name, size = 24 }) {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    const iconNode = window.lucide.icons[toPascalCase(name)];
+    if (ref.current && iconNode) {
+      const svg = window.lucide.createElement(iconNode);
+      svg.setAttribute('width', size);
+      svg.setAttribute('height', size);
+      svg.setAttribute('stroke', 'currentColor');
+      ref.current.innerHTML = '';
+      ref.current.appendChild(svg);
+    }
+  }, [name]);
+  return <span ref={ref} style={{ display: 'inline-flex' }} />;
+}
+
+function Demo() {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 20, fontFamily: 'var(--font-body)' }}>
+      <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
+        <Button variant="outline">Student Login</Button>
+        <Button variant="solid">Get Started</Button>
+        <Button variant="maize">Enroll Now</Button>
+        <Button variant="outline" disabled>Disabled</Button>
+      </div>
+      <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+        <IconSwatch><Lucide name="award" /></IconSwatch>
+        <IconSwatch><Lucide name="handshake" /></IconSwatch>
+        <IconSwatch><Lucide name="laptop" /></IconSwatch>
+        <Badge tone="navy">Grades K-12</Badge>
+        <Badge tone="maize">Open Enrollment</Badge>
+        <Badge tone="outline">Free</Badge>
+      </div>
+      <Card style={{ maxWidth: 300 }}>
+        <h3 style={{ font: 'var(--text-display-sm)', marginBottom: 8 }}>Tuition-Free</h3>
+        <p style={{ font: 'var(--text-body-sm)', color: 'var(--text-body)' }}>A real public school, made to fit <em>your</em> life.</p>
+      </Card>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+/* Base resets applied globally across the design system. */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--surface-page);
+  color: var(--text-body);
+  font: var(--text-body-md);
+}
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--text-headline);
+  margin: 0;
+  letter-spacing: var(--tracking-tight);
+}
+p { margin: 0; }
+a { color: var(--text-link); }
+button { font-family: var(--font-ui); }

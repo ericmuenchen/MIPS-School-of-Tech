@@ -1,0 +1,15 @@
+/* MIPS Design System, global stylesheet entry point.
+   Matches the live site (miprepschool.org): Poppins primary sans,
+   Source Serif Pro serif accent, maize-and-navy palette.
+
+   Editorial policy: use em dashes sparingly. They are fine for the
+   occasional aside or emphasis, but don't lean on them. Prefer a colon,
+   period, parentheses, or "and"/"to" as the default. Applies to all
+   tokens, cards, docs, and templates.
+
+   Load order matters, fonts and tokens first, base resets last. */
+@import url('tokens/fonts.css');
+@import url('tokens/colors.css');
+@import url('tokens/typography.css');
+@import url('tokens/spacing.css');
+@import url('tokens/base.css');

@@ -64,6 +64,7 @@ otherwise hide it and every syllabus would lose its stylesheet.
 | `2026-2027-Course-Catalog.pdf` | PDF catalog, offered as a download. |
 | `School-of-Technology-Program-Guide.pdf` | Program guide, offered as a download. |
 | `_ds/mips-design-system-course-syllabi-7626282b-…/` | The design system every syllabus links to. |
+| `_ds/mips-design-system-6fe64d3a-…/` | The parent design system, in full source. Behind `index.html`; not linked at runtime. |
 | `assets/logo/` | School of Technology lockup, reversed lockup, standalone mark. |
 | `assets/course-logos/` | Eleven per-course hexagon marks. |
 | `assets/logo-lockup.png` | The MIPS parent-school lockup. |
@@ -128,11 +129,29 @@ Edit these directly. They are the easy files.
 
 ---
 
-## 3. The design system
+## 3. The design systems
 
-Lives at `_ds/mips-design-system-course-syllabi-7626282b-bb17-4e1e-9830-1ee9b84a2c82/`.
-`styles.css` is the single entry point; it imports every token file. Read
-`readme.md` in that folder — it is thorough and it is the brand bible.
+There are **two**, and they serve the two kinds of page in §2.
+
+| Directory | Namespace | Serves | State |
+| --- | --- | --- | --- |
+| `_ds/mips-design-system-6fe64d3a-…/` | `MIPSDesignSystem_6fe64d` | `index.html`, the landing page | **Full source** — components, guidelines, tokens, marketing-site template, `SKILL.md` |
+| `_ds/mips-design-system-course-syllabi-7626282b-…/` | `DesignSystem_762628` | the syllabi and catalog | **Compiled only** — see §5.8 |
+
+The syllabi one is the derived system: it was built from the reference syllabus
+and copied the parent's tokens, fonts, and brand rules verbatim, then narrowed
+the component set to the document vocabulary (`AccentRule`, `Badge`, `Button`,
+`IconSwatch`, `InfoCard`). The parent carries a fuller UI kit — forms, feedback,
+navigation — that the site does not currently use.
+
+Both declare the same 74 tokens, so the colour, type, and spacing rules below
+hold across both. In each, `styles.css` is the single entry point and imports
+every token file, and `readme.md` is the brand bible — the syllabi system's is
+the more thorough of the two and the one to read first.
+
+Only the syllabi system is linked by any page. The parent is in the repo as
+**source**, so the landing page can be edited and re-exported; nothing loads it
+at runtime.
 
 ### Tokens that matter
 
@@ -232,10 +251,11 @@ Real, verified, and worth fixing. None are blocking.
 
 7. **No icon set of MIPS's own.** Lucide is a flagged substitution throughout.
 
-8. **The design system in this repo is compiled output, not source.** `_ds/…/`
-   contains only `styles.css`, `tokens/`, and the compiled `_ds_bundle.js`.
-   Its own `readme.md` and `_ds_manifest.json` describe fifteen files that are
-   **not present**:
+8. **The syllabi design system is compiled output, not source.** Of the two
+   systems in `_ds/` (§3), the **course-syllabi** one
+   (`…-course-syllabi-7626282b-…`) contains only `styles.css`, `tokens/`, and
+   the compiled `_ds_bundle.js`. Its own `readme.md` and `_ds_manifest.json`
+   describe fifteen files that are **not present**:
 
    - `components/core/{AccentRule,Badge,Button,IconSwatch,InfoCard}.jsx`
    - `guidelines/*.card.html` (seven specimen cards)
@@ -244,13 +264,20 @@ Real, verified, and worth fixing. None are blocking.
      `calendar/calendar-2026-2027.json` and `calendar/calendar.md`
    - `SKILL.md`, the Agent-Skill wrapper
 
-   Consequence: the site **renders** correctly — the compiled bundle and the
-   CSS tokens are all the pages need — but the system cannot be **edited or
-   extended** from this repository, and the two artefacts the authoring rules
-   depend on (the syllabus template and the academic-year week grid) are
-   unavailable. Those files live in the Claude design system project that
-   produced `_ds/`. Exporting them into this repo is the single highest-value
-   fix available, and it is what makes §8 unnecessary.
+   Consequence: the syllabi and catalog **render** correctly — the compiled
+   bundle and the CSS tokens are all those pages need — but that system cannot
+   be **edited or extended** from this repository, and the two artefacts the
+   authoring rules depend on (the syllabus template and the academic-year week
+   grid) are unavailable.
+
+   The parent system (`…-6fe64d3a-…`) *is* complete here, and it supplies
+   `Badge`, `Button`, and `IconSwatch` in full source. Only `AccentRule` and
+   `InfoCard` — the two components unique to the syllabi vocabulary — plus the
+   syllabus template and the calendar have no source anywhere in the repo.
+
+   **Fix:** export design-system project `7626282b-bb17-4e1e-9830-1ee9b84a2c82`
+   ("MIPS Design System — Course Syllabi") the same way `6fe64d3a` was
+   exported, and unpack it over its existing `_ds/` directory.
 
 ---
 
@@ -334,26 +361,28 @@ access can read, edit the syllabi, edit the catalog, and deploy.
 
 ### What does not travel
 
-**1. The design canvas behind `index.html`.** The landing page is a canvas
-export (§2a). The canvas itself lives in the originating account. Without it,
-the documented edit path — change it in the canvas, re-export — is unavailable,
-and `index.html` becomes effectively read-only, since hand-editing corrupts it.
+**1. The live design canvases.** The repo now holds the parent system's full
+source, including `templates/marketing-site/MarketingSite.dc.html`, so the
+landing page can be rebuilt from source in any account. What does not transfer
+is the *live canvas* — the saved, editable document in the originating
+account's Claude Design workspace, carrying the accumulated edits that turned
+that generic template into the current `index.html`. Rebuilding from source is
+possible; resuming the old canvas is not.
 
-**2. The design system project source.** See §5.8. The repo carries compiled
-output only; the components, the syllabus template, and the academic calendar
-stay behind.
+**2. The syllabi design system source.** See §5.8. Still outstanding: export
+project `7626282b-…` before switching, and this stops being an issue.
 
 ### Do this before switching
 
-1. **Export the missing design system files into the repo** — the fifteen files
-   listed in §5.8, at the paths `_ds_manifest.json` already expects. This is
-   the durable fix: after it, the repo is genuinely self-contained and nothing
-   below matters.
-2. **Decide what happens to the landing page.** Either re-create or share the
-   canvas into the new account, or accept that `index.html` is frozen until
-   someone re-authors it as plain HTML. Given that every other page in this
+1. **Export design-system project `7626282b-…` into the repo** — the fifteen
+   files listed in §5.8, at the paths `_ds_manifest.json` already expects. This
+   is the last piece; the parent system `6fe64d3a-…` is already done.
+2. **Decide what happens to the landing page.** Either re-create the canvas in
+   the new account from `MarketingSite.dc.html` plus the current `index.html`,
+   or re-author the page as plain HTML. Given that every other page in this
    repo is hand-authored HTML, re-authoring the landing page to match is a
-   reasonable simplification, not a downgrade.
+   reasonable simplification, not a downgrade — and it would retire the
+   "never hand-edit this file" rule entirely.
 3. **Re-authorise GitHub on the new account** for
    `ericmuenchen/MIPS-School-of-Tech`, and confirm the account can push.
 4. **Check Settings → Pages still points at `main`** from the repository root.
