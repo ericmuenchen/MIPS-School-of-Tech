@@ -8,32 +8,38 @@ Repository: `ericmuenchen/MIPS-School-of-Tech`.
 
 ---
 
-## 0. Read this first: there is unmerged work
+## 0. How work reaches the site
 
-At the time this handoff was written, branch **`claude/concise-config-5ifm0q`
-was 20 commits ahead of `main`, and no pull request had ever been opened on
-this repository.** If GitHub Pages serves from `main`, the published site is
-missing all of the following:
+**Claude Code sessions never commit to `main`.** Each session is assigned its
+own `claude/<slug>` branch and pushes there. Merging is a manual step, and it
+is easy to forget: this repository once accumulated three days of work across
+20 commits on a branch while `main` — and therefore the published site — sat
+unchanged.
 
-- the School of Technology logo set (`assets/logo/`) and the eleven course
-  marks (`assets/course-logos/`)
-- `School-of-Technology-Program-Guide.pdf`
-- the rebuilt HTML course catalog (`Course-Catalog.html`)
-- every print fix (ink-light printing, forced background colours, page margins)
-- the header/footer logo work and the hero watermark
-
-**First action for whoever picks this up:** decide whether that branch is good,
-then open a PR and merge it to `main`. Until that happens, the repository and
-the live site tell two different stories.
-
-Verify current state with:
+So make this the habit at the end of any session that changed something:
 
 ```bash
 git fetch origin
-git rev-list --count origin/main..origin/claude/concise-config-5ifm0q
+git checkout main
+git merge --ff-only claude/<the-session-branch>
+git push origin main
 ```
 
-Zero means it has been merged and this section is stale — delete it.
+If `--ff-only` refuses, `main` has moved independently; merge normally and
+resolve, rather than forcing.
+
+Check for stragglers at any time:
+
+```bash
+git fetch origin
+for b in $(git branch -r | grep 'origin/claude/'); do
+  echo "$b: $(git rev-list --count origin/main..$b) unmerged"
+done
+```
+
+Anything reporting `0` is fully merged and the branch can be deleted. Since
+this repository has a single maintainer, pull requests are optional ceremony —
+merging straight to `main` is fine.
 
 ---
 
@@ -274,8 +280,8 @@ Pages serving `main` from the repository root: there is a root `.nojekyll`, no
 `CNAME`, and no `.github/workflows/`. **Confirm this in Settings → Pages before
 relying on it.**
 
-Then merge the branch described in §0 and the published site catches up with
-the repository.
+Which means the merge in §0 *is* the deploy. Work that stays on a `claude/*`
+branch is not published, however finished it looks in the repository.
 
 ---
 
