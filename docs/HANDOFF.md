@@ -232,6 +232,26 @@ Real, verified, and worth fixing. None are blocking.
 
 7. **No icon set of MIPS's own.** Lucide is a flagged substitution throughout.
 
+8. **The design system in this repo is compiled output, not source.** `_ds/…/`
+   contains only `styles.css`, `tokens/`, and the compiled `_ds_bundle.js`.
+   Its own `readme.md` and `_ds_manifest.json` describe fifteen files that are
+   **not present**:
+
+   - `components/core/{AccentRule,Badge,Button,IconSwatch,InfoCard}.jsx`
+   - `guidelines/*.card.html` (seven specimen cards)
+   - `templates/syllabus/Syllabus.dc.html` — the syllabus template
+   - `calendar/calendar.card.html`, and with it
+     `calendar/calendar-2026-2027.json` and `calendar/calendar.md`
+   - `SKILL.md`, the Agent-Skill wrapper
+
+   Consequence: the site **renders** correctly — the compiled bundle and the
+   CSS tokens are all the pages need — but the system cannot be **edited or
+   extended** from this repository, and the two artefacts the authoring rules
+   depend on (the syllabus template and the academic-year week grid) are
+   unavailable. Those files live in the Claude design system project that
+   produced `_ds/`. Exporting them into this repo is the single highest-value
+   fix available, and it is what makes §8 unnecessary.
+
 ---
 
 ## 6. Making a change
@@ -249,10 +269,10 @@ stylesheet path and the bundle unpack.
 
 ### Adding a course
 
-1. Author the syllabus. Copy the closest existing `<Course-Name>.html`, or use
-   the design system's syllabus template
-   (`_ds/…/templates/syllabus/Syllabus.dc.html`). Name the file in Title-Case
-   with hyphens, matching the existing files.
+1. Author the syllabus by copying the closest existing `<Course-Name>.html`.
+   Name the new file in Title-Case with hyphens, matching the existing files.
+   (The design system's `Syllabus.dc.html` template is *not* in this repo —
+   see §5.8 — so copying a sibling file is the only route that works here.)
 2. Add the course mark to `assets/course-logos/` as a `viewBox="0 0 200 176"`
    SVG, navy `#02225A` hexagon with a maize `#FFE000` inner outline, named as a
    lowercase hyphenated slug.
@@ -266,10 +286,12 @@ stylesheet path and the bundle unpack.
 From the design system readme, and fixed for every MIPS syllabus:
 
 - **One semester per syllabus** — Fall (S1, 18 instructional weeks) or Winter
-  (S2, 20 weeks). Fit the content to that semester's week grid from
-  `_ds/…/calendar/calendar-2026-2027.json`, inserting each break (Labor Day,
-  Thanksgiving, Winter, Spring, State Testing, Presidents'/Memorial Day) as a
-  "no new lessons" row.
+  (S2, 20 weeks). Fit the content to that semester's week grid, inserting each
+  break (Labor Day, Thanksgiving, Winter, Spring, State Testing,
+  Presidents'/Memorial Day) as a "no new lessons" row. The machine-readable
+  week grid (`calendar/calendar-2026-2027.json`) lives in the design system
+  project, not in this repo (§5.8); until it is exported here, take the dates
+  from an existing syllabus's schedule table.
 - **Instructor is always Eric Muenchen**, `muenchen@miprepschool.org`.
 - **Never invent a grading scale.** If one is not supplied, ask for it.
 
@@ -295,3 +317,49 @@ If you connect this repository to a claude.ai Project, the Project will read
 `CLAUDE.md` and this handoff as knowledge and stay in sync as they change. Keep
 the documents here in git; do not fork a second copy into Project knowledge,
 where it will drift out of date invisibly.
+
+---
+
+## 8. Moving this to a different Claude account
+
+Connecting the GitHub repository to the new account is necessary but **not
+sufficient.** Two things this site depends on were made inside Claude and do
+not live in git.
+
+### What travels with the repo
+
+Everything published: all HTML, both PDFs, `assets/`, the CSS tokens, the
+compiled design-system bundle, and these documents. A new account with repo
+access can read, edit the syllabi, edit the catalog, and deploy.
+
+### What does not travel
+
+**1. The design canvas behind `index.html`.** The landing page is a canvas
+export (§2a). The canvas itself lives in the originating account. Without it,
+the documented edit path — change it in the canvas, re-export — is unavailable,
+and `index.html` becomes effectively read-only, since hand-editing corrupts it.
+
+**2. The design system project source.** See §5.8. The repo carries compiled
+output only; the components, the syllabus template, and the academic calendar
+stay behind.
+
+### Do this before switching
+
+1. **Export the missing design system files into the repo** — the fifteen files
+   listed in §5.8, at the paths `_ds_manifest.json` already expects. This is
+   the durable fix: after it, the repo is genuinely self-contained and nothing
+   below matters.
+2. **Decide what happens to the landing page.** Either re-create or share the
+   canvas into the new account, or accept that `index.html` is frozen until
+   someone re-authors it as plain HTML. Given that every other page in this
+   repo is hand-authored HTML, re-authoring the landing page to match is a
+   reasonable simplification, not a downgrade.
+3. **Re-authorise GitHub on the new account** for
+   `ericmuenchen/MIPS-School-of-Tech`, and confirm the account can push.
+4. **Check Settings → Pages still points at `main`** from the repository root.
+   Pages belongs to the GitHub repository, not to any Claude account, so it
+   should be unaffected — confirm rather than assume.
+5. **Carry nothing else by hand.** Conversation history and Project knowledge
+   in the old account are not worth migrating; this document is the handoff.
+   If something in the old account turns out to matter, it belongs in this
+   repo — add it here rather than recreating it as Project knowledge.
