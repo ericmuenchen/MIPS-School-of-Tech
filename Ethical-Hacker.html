@@ -119,7 +119,7 @@
     <div style="height:5px;width:44px;background:var(--color-maize-500);border-radius:var(--radius-pill);margin:40px 0 14px;"></div>
     <h2 style="font:var(--text-display-sm);letter-spacing:var(--tracking-tight);color:var(--color-ink-900);margin:0 0 12px;">Course Description</h2>
     <p style="margin:0 0 14px;">This course teaches you to think like a hacker so you can defend like one. You'll work through the same process real penetration testers follow &mdash; gathering information about a target, scanning and probing it for weaknesses, and (in a safe, controlled lab) exploiting what you find &mdash; and use every attack you learn to build the matching defense. Everything happens hands-on inside guided virtual labs, at a pace that fits your schedule.</p>
-    <p style="margin:0 0 0;">The semester works through <strong style="color:var(--color-ink-900);">15 course modules</strong>, roughly one per week, moving from the ethics and process of penetration testing through reconnaissance, scanning, enumeration, vulnerability analysis, system hacking, malware, sniffing and hijacking, defensive systems, web applications, wireless and mobile, cloud and IoT, and cryptography &mdash; then a review and a <strong style="color:var(--color-ink-900);">Final Exam</strong> covering the whole course.</p>
+    <p style="margin:0 0 0;">The semester works through <strong style="color:var(--color-ink-900);">eight chapters</strong>, two weeks each, moving from the ethics and law of authorized testing through the penetration testing lifecycle, reconnaissance, scanning, vulnerability analysis, exploitation, post-exploitation, and persistence and evasion, then closing with a review, a <strong style="color:var(--color-ink-900);">written exam</strong>, and a hands-on <strong style="color:var(--color-ink-900);">lab practical</strong>.</p>
 
     <!-- ===== HOW THIS COURSE WORKS ===== -->
     <div style="height:5px;width:44px;background:var(--color-maize-500);border-radius:var(--radius-pill);margin:40px 0 14px;"></div>
@@ -146,8 +146,8 @@
         <div style="display:flex;flex-direction:column;gap:10px;">
           <span style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:14px;background:var(--color-maize-500);color:var(--color-navy-700);"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path></svg></span>
           <div>
-            <div style="font:var(--text-body-md);font-weight:700;color:var(--color-ink-900);margin-bottom:2px;">Build real defenses</div>
-            <div style="font:var(--text-body-sm);color:var(--color-gray-600);">Configure the firewalls, IDS, and policies that hold attackers off.</div>
+            <div style="font:var(--text-body-md);font-weight:700;color:var(--color-ink-900);margin-bottom:2px;">Think like a defender</div>
+            <div style="font:var(--text-body-sm);color:var(--color-gray-600);">Evaluate the countermeasures that detect and stop each attack.</div>
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:10px;">
@@ -159,13 +159,13 @@
         </div>
       </div>
       <ul style="margin:0;padding-left:20px;line-height:1.7;">
-        <li>Explain the ethical and legal boundaries of penetration testing, and identify common threat actors</li>
-        <li>Gather information about a target using reconnaissance and social engineering awareness</li>
-        <li>Scan and enumerate networks to find live hosts, services, and operating systems</li>
-        <li>Assess and prioritize vulnerabilities using industry scoring systems</li>
-        <li>Exploit weaknesses in a controlled lab to gain and escalate access</li>
-        <li>Recognize malware, sniffing, session hijacking, and denial-of-service techniques</li>
-        <li>Configure defenses &mdash; firewalls, IDS, honeypots, and account policies &mdash; against web, wireless, cloud, and cryptographic attacks</li>
+        <li>Explain the ethical and legal boundaries of authorized testing, and tell it apart from criminal hacking</li>
+        <li>Plan a structured engagement: map the lifecycle, scope it, and write the rules of engagement</li>
+        <li>Gather information about a target with OSINT: WHOIS, DNS, search-engine dorking, and Shodan</li>
+        <li>Scan and enumerate networks with Nmap to build a target asset inventory</li>
+        <li>Assess and prioritize vulnerabilities using the CVE database and CVSS scoring</li>
+        <li>Exploit weaknesses in a controlled lab to gain access, then escalate privileges and move laterally</li>
+                <li>Analyze how attackers persist and evade detection, and evaluate the defenses that catch them</li>
       </ul>
     </div>
 
@@ -188,236 +188,43 @@
     <!-- ===== SCHEDULE ===== -->
     <div style="height:5px;width:44px;background:var(--color-maize-500);border-radius:var(--radius-pill);margin:44px 0 14px;"></div>
     <h2 style="font:var(--text-display-sm);letter-spacing:var(--tracking-tight);color:var(--color-ink-900);margin:0 0 6px;">Semester Schedule</h2>
-    <p style="margin:0 0 20px;">A week-by-week roadmap of what to accomplish. If the course is self-paced, treat each row as a target pace. A &starf; marks a project or capstone milestone.</p>
+    <p style="margin:0 0 20px;">A week-by-week roadmap through the eight chapters, spread across all 18 weeks of the term. Each chapter runs two weeks: the reading and the first two labs in week one, the last lab and the graded work in week two. The course is self-paced, so treat each row as a target pace. School breaks are marked as no-new-work weeks, and a &starf; marks a major milestone.</p>
 
-    <p style="margin:-10px 0 20px;font:var(--text-body-sm);color:var(--color-gray-600);">Fifteen course modules, one per week, plus a closing review and final exam. Each module wraps up with practice questions, a vocabulary check, and a module exam.</p>
-
-    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:0 0 10px;">Module 1.0 &middot; Introduction to Ethical Hacking</div>
-    <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;margin-bottom:8px;">
-      <thead>
-        <tr>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:56px;">Week</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:104px;">Dates</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">What to accomplish this week</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">1</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Aug 25&ndash;28</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Complete orientation, then work through the Introduction module and get comfortable in the lab simulator</td></tr>
-      </tbody>
-    </table>
-
-    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:26px 0 10px;">Module 2.0 &middot; Introduction to Penetration Testing</div>
-    <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;margin-bottom:8px;">
-      <thead>
-        <tr>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:56px;">Week</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:104px;">Dates</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">What to accomplish this week</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">2</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Aug 31&ndash;Sep 3</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Learn the penetration testing process and types, threat actors, target selection, assessment types, and legal &amp; ethical compliance</td></tr>
-        <tr><td colspan="3" style="padding:7px 12px;border:1px solid var(--color-gray-300);background:var(--color-navy-50);color:var(--color-navy-700);font-style:italic;font-weight:600;">Labor Day Break &middot; Sep 4&ndash;7 &middot; no new work due</td></tr>
-      </tbody>
-    </table>
-
-    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:26px 0 10px;">Module 3.0 &middot; Social Engineering and Physical Security</div>
-    <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;margin-bottom:8px;">
-      <thead>
-        <tr>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:56px;">Week</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:104px;">Dates</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">What to accomplish this week</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">3</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Sep 8&ndash;11</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Use the Social Engineer Toolkit and identify social engineering tactics; study physical security, countermeasures, and prevention</td></tr>
-      </tbody>
-    </table>
-
-    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:26px 0 10px;">Module 4.0 &middot; Reconnaissance</div>
-    <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;margin-bottom:8px;">
-      <thead>
-        <tr>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:56px;">Week</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:104px;">Dates</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">What to accomplish this week</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">4</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Sep 14&ndash;18</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Perform reconnaissance with Google hacking, theHarvester, and Nmap; apply reconnaissance countermeasures on Windows and Linux</td></tr>
-      </tbody>
-    </table>
-
-    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:26px 0 10px;">Module 5.0 &middot; Scanning</div>
-    <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;margin-bottom:8px;">
-      <thead>
-        <tr>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:56px;">Week</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:104px;">Dates</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">What to accomplish this week</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">5</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Sep 21&ndash;25</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Scan a network with Nmap and Zenmap, then practice banner grabbing; <strong style="color:var(--color-ink-900);">&starf; submit the Recon &amp; Scanning Lab Report</strong></td></tr>
-      </tbody>
-    </table>
-
-    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:26px 0 10px;">Module 6.0 &middot; Enumeration</div>
-    <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;margin-bottom:8px;">
-      <thead>
-        <tr>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:56px;">Week</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:104px;">Dates</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">What to accomplish this week</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">6</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Sep 28&ndash;Oct 2</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Enumerate Windows and Linux systems with Metasploit, NetBIOS Enumerator, and SoftPerfect; apply enumeration countermeasures</td></tr>
-      </tbody>
-    </table>
-
-    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:26px 0 10px;">Module 7.0 &middot; Analyze Vulnerabilities</div>
-    <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;margin-bottom:8px;">
-      <thead>
-        <tr>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:56px;">Week</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:104px;">Dates</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">What to accomplish this week</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">7</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Oct 5&ndash;9</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Conduct vulnerability scans, learn the vulnerability management life cycle and scoring systems, then scan real workstations, servers, and appliances with Retina and Nessus</td></tr>
-      </tbody>
-    </table>
-
-    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:26px 0 10px;">Module 8.0 &middot; System Hacking</div>
-    <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;margin-bottom:8px;">
-      <thead>
-        <tr>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:56px;">Week</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:104px;">Dates</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">What to accomplish this week</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">8</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Oct 12&ndash;16</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Crack passwords with rainbow tables and John the Ripper, escalate privileges and crack the SAM database, maintain access with a backdoor, and cover your tracks; <strong style="color:var(--color-ink-900);">&starf; submit the System Hacking Lab</strong></td></tr>
-      </tbody>
-    </table>
-
-    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:26px 0 10px;">Module 9.0 &middot; Malware</div>
-    <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;margin-bottom:8px;">
-      <thead>
-        <tr>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:56px;">Week</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:104px;">Dates</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">What to accomplish this week</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">9</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Oct 19&ndash;23</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Build malware in a lab sandbox, then combat it: scan for open ports with Netstat and Nmap, and counter malware with Windows Defender</td></tr>
-      </tbody>
-    </table>
-
-    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:26px 0 10px;">Module 10.0 &middot; Sniffers, Session Hijacking, and Denial of Service</div>
-    <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;margin-bottom:8px;">
-      <thead>
-        <tr>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:56px;">Week</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:104px;">Dates</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">What to accomplish this week</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">10</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Oct 26&ndash;30</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Sniff traffic with Wireshark, poison ARP and DNS, hijack a web session with Burp Suite, and launch a DoS/DDoS attack</td></tr>
-      </tbody>
-    </table>
-
-    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:26px 0 10px;">Module 11.0 &middot; IDS, Firewalls, and Honeypots</div>
-    <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;margin-bottom:8px;">
-      <thead>
-        <tr>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:56px;">Week</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:104px;">Dates</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">What to accomplish this week</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">11</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Nov 2&ndash;6</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Detect intrusions with Snort, configure a perimeter firewall, practice evading firewall detection, and build a honeypot with Pentbox</td></tr>
-      </tbody>
-    </table>
-
-    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:26px 0 10px;">Module 12.0 &middot; Web Servers, Web Applications, and SQL Injections</div>
-    <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;margin-bottom:8px;">
-      <thead>
-        <tr>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:56px;">Week</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:104px;">Dates</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">What to accomplish this week</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">12</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Nov 9&ndash;13</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Extract web server information with Nmap, exploit hidden fields and cross-site scripting, scan a site with Acunetix, and perform a SQL injection attack</td></tr>
-      </tbody>
-    </table>
-
-    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:26px 0 10px;">Module 13.0 &middot; Wi-Fi, Bluetooth, and Mobile Devices</div>
-    <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;margin-bottom:8px;">
-      <thead>
-        <tr>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:56px;">Week</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:104px;">Dates</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">What to accomplish this week</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">13</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Nov 16&ndash;20</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Crack Wi-Fi encryption with Aircrack-ng, locate rogue access points, discover Bluetooth devices, and secure a mobile device</td></tr>
-        <tr><td colspan="3" style="padding:7px 12px;border:1px solid var(--color-gray-300);background:var(--color-navy-50);color:var(--color-navy-700);font-style:italic;font-weight:600;">Thanksgiving Break &middot; Nov 23&ndash;27 &middot; no new work due</td></tr>
-      </tbody>
-    </table>
-
-    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:26px 0 10px;">Module 14.0 &middot; Cloud Computing and Internet of Things</div>
-    <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;margin-bottom:8px;">
-      <thead>
-        <tr>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:56px;">Week</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:104px;">Dates</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">What to accomplish this week</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">14</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Nov 30&ndash;Dec 4</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Secure files in the cloud, then search for and scan IoT devices with Shodan and Nmap; <strong style="color:var(--color-ink-900);">&starf; submit the Attack Surface Report</strong></td></tr>
-      </tbody>
-    </table>
-
-    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:26px 0 10px;">Module 15.0 &middot; Cryptography</div>
-    <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;margin-bottom:8px;">
-      <thead>
-        <tr>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:56px;">Week</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:104px;">Dates</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">What to accomplish this week</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">15</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Dec 7&ndash;11</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Verify hash integrity, study public key infrastructure, encrypt files and a hard drive with GPG, and review cryptographic attack countermeasures</td></tr>
-      </tbody>
-    </table>
-
-    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:26px 0 10px;">Review &amp; Final Exam</div>
     <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;">
       <thead>
         <tr>
           <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:56px;">Week</th>
           <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:104px;">Dates</th>
-          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">What to accomplish this week</th>
+          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">Chapter, labs &amp; assessments</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">16</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Dec 14&ndash;18</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Review Modules 1&ndash;8: prepare, gain access, and cover up</td></tr>
+        <tr><td colspan="3" style="padding:7px 12px;border:1px solid var(--color-gray-300);background:var(--color-navy-50);color:var(--color-navy-700);font-weight:700;font:var(--text-label);letter-spacing:0.06em;text-transform:uppercase;font-size:13px;">Unit 1 · Ethics, Law &amp; Planning</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">1</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Aug 25&ndash;28</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Ch 1 · Ethics, Law &amp; the Hacker Mindset, part 1.</strong> Course orientation, then the Chapter 1 reading. Labs 1.1 Course Lab Environment Setup and 1.2 Acceptable Use Policy Review.</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">2</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Aug 31&ndash;Sep 3</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Ch 1 · Ethics, Law &amp; the Hacker Mindset, part 2.</strong> Lab 1.3 Legal Boundaries Scenario Analysis. Ch 1 discussion post, and Assignment 1.1 Ethics Case Study due Friday.</td></tr>
+        <tr><td colspan="3" style="padding:7px 12px;border:1px solid var(--color-gray-300);background:var(--color-navy-50);color:var(--color-navy-700);font-style:italic;font-weight:600;">Labor Day Break &middot; Sep 4&ndash;7 &middot; no new work due</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">3</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Sep 8&ndash;11</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Ch 2 · The Penetration Testing Lifecycle, part 1.</strong> Chapter 2 reading. Labs 2.1 Pentest Lifecycle Mapping and 2.2 Scoping Document Drafting.</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">4</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Sep 14&ndash;18</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Ch 2 · The Penetration Testing Lifecycle, part 2.</strong> Lab 2.3 Rules of Engagement Template Walkthrough. Assignment 2.1 Pentest Plan Outline due Thursday, Ch 2 quiz Friday.</td></tr>
+        <tr><td colspan="3" style="padding:7px 12px;border:1px solid var(--color-gray-300);background:var(--color-navy-50);color:var(--color-navy-700);font-weight:700;font:var(--text-label);letter-spacing:0.06em;text-transform:uppercase;font-size:13px;">Unit 2 · Reconnaissance &amp; Scanning</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">5</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Sep 21&ndash;25</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Ch 3 · Passive Reconnaissance &amp; OSINT, part 1.</strong> Chapter 3 reading. Labs 3.1 WHOIS &amp; DNS Enumeration and 3.2 Google Dorking &amp; the OSINT Framework.</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">6</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Sep 28&ndash;Oct 2</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Ch 3 · Passive Reconnaissance &amp; OSINT, part 2.</strong> Lab 3.3 Shodan Target Profiling. Assignment 3.1 OSINT Report on a Dummy Target due Thursday; Assignment 3.2 Reflection and the Ch 3 quiz Friday.</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">7</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Oct 5&ndash;9</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Ch 4 · Scanning &amp; Enumeration, part 1.</strong> Chapter 4 reading. Labs 4.1 Nmap Host Discovery and 4.2 Service &amp; Version Detection Scans, against the assigned target list only.</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">8</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Oct 12&ndash;16</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Ch 4 · Scanning &amp; Enumeration, part 2.</strong> Lab 4.3 Scan Output Parsing &amp; Reporting. Assignment 4.1 Annotated Nmap Report and the Ch 4 quiz Friday.</td></tr>
+        <tr><td colspan="3" style="padding:7px 12px;border:1px solid var(--color-gray-300);background:var(--color-navy-50);color:var(--color-navy-700);font-weight:700;font:var(--text-label);letter-spacing:0.06em;text-transform:uppercase;font-size:13px;">Unit 3 · Vulnerabilities &amp; Exploitation</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">9</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Oct 19&ndash;23</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Ch 5 · Vulnerability Identification &amp; Scoring, part 1.</strong> Chapter 5 reading. Labs 5.1 OpenVAS / Nessus Essentials Scan Setup and 5.2 CVE Lookup &amp; CVSS Score Interpretation.</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">10</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Oct 26&ndash;30</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Ch 5 · Vulnerability Identification &amp; Scoring, part 2.</strong> Lab 5.3 Vulnerability Report Triage. Assignment 5.1 Vulnerability Assessment Summary due Thursday, Ch 5 quiz Friday.</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">11</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Nov 2&ndash;6</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Ch 6 · Exploitation &amp; Initial Access, part 1.</strong> Chapter 6 reading. Labs 6.1 Metasploit Framework Navigation and 6.2 Exploiting a Known Vulnerability, on the lab VM only.</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">12</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Nov 9&ndash;13</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Ch 6 · Exploitation &amp; Initial Access, part 2.</strong> Lab 6.3 Shell Session Management. Assignment 6.1 Exploitation Lab Write-Up due Thursday, Ch 6 quiz Friday.</td></tr>
+        <tr><td colspan="3" style="padding:7px 12px;border:1px solid var(--color-gray-300);background:var(--color-navy-50);color:var(--color-navy-700);font-weight:700;font:var(--text-label);letter-spacing:0.06em;text-transform:uppercase;font-size:13px;">Unit 4 · Post-Exploitation &amp; Persistence</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">13</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Nov 16&ndash;20</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Ch 7 · Post-Exploitation, part 1.</strong> Chapter 7 reading. Labs 7.1 Local Privilege Escalation and 7.2 Credential Harvesting Basics.</td></tr>
+        <tr><td colspan="3" style="padding:7px 12px;border:1px solid var(--color-gray-300);background:var(--color-navy-50);color:var(--color-navy-700);font-style:italic;font-weight:600;">Thanksgiving Break &middot; Nov 23&ndash;27 &middot; no new work due</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">14</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Nov 30&ndash;Dec 4</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Ch 7 · Post-Exploitation, part 2.</strong> Lab 7.3 Lateral Movement Simulation. Assignment 7.1 Post-Exploitation Narrative Report due Thursday; Assignment 7.2 Risk Impact Analysis and the Ch 7 quiz Friday.</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">15</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Dec 7&ndash;11</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Ch 8 · Persistence &amp; Evasion, part 1.</strong> Chapter 8 reading. Labs 8.1 Persistence Mechanisms (scheduled tasks and cron) and 8.2 Log Evasion &amp; Anti-Forensics Basics.</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">16</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Dec 14&ndash;18</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Ch 8 · Persistence &amp; Evasion, part 2.</strong> Lab 8.3 The Defender's Perspective: Detecting Persistence.</td></tr>
         <tr><td colspan="3" style="padding:7px 12px;border:1px solid var(--color-gray-300);background:var(--color-navy-50);color:var(--color-navy-700);font-style:italic;font-weight:600;">Winter Break &middot; Dec 21&ndash;Jan 1 &middot; no new work due</td></tr>
-        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">17</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Jan 4&ndash;8</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Review Modules 9&ndash;15: attack, defend, and secure</td></tr>
-        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">18</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Jan 11&ndash;15</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">&starf; take the Final Exam</strong>, covering the whole semester</td></tr>
+        <tr><td colspan="3" style="padding:7px 12px;border:1px solid var(--color-gray-300);background:var(--color-navy-50);color:var(--color-navy-700);font-weight:700;font:var(--text-label);letter-spacing:0.06em;text-transform:uppercase;font-size:13px;">Review, Exam &amp; Lab Practical</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">17</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Jan 4&ndash;8</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">&starf; Review &amp; Written Exam.</strong> No new chapter. Review Ch 1&ndash;8 from your notes, your lab reports, and the concept summary sheet, then bring your weakest spots to Q&amp;A. <strong style="color:var(--color-ink-900);">The written exam is Wednesday</strong>, covering the full attack lifecycle.</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">18</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Jan 11&ndash;15</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">&starf; Lab Practical.</strong> A full attack-lifecycle mini-engagement against a fresh lab VM, applying everything from Ch 1&ndash;8. Submission due Friday.</td></tr>
       </tbody>
     </table>
 
