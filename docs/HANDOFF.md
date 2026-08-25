@@ -281,6 +281,24 @@ Real, verified, and worth fixing. None are blocking.
    `<Course-Name>.html`** — those are the current reference. Re-derive the
    template from a current syllabus before using it as a starting point again.
 
+9. **The landing page's Intro to Cybersecurity summary is stale.** That course
+   was rebuilt on the CodeHS *Fundamentals of Cybersecurity* content (modules
+   1–5), and `Intro-to-Cybersecurity.html` and `Course-Catalog.html` were
+   updated to match. The `summary` in the `index.html` template still describes
+   the retired MICE version ("Build, manage, and protect a secure business
+   network…"). Because `index.html` must not be hand-edited (§2a), fix it in the
+   design canvas and re-export. Suggested replacement:
+
+   > Start with the digital world you already live in: your digital footprint,
+   > the data companies collect, and the attacks to watch for. Then make and
+   > break codes, build a cipher-driven escape room, and follow a message across
+   > the internet from binary to packets to a web page.
+
+   Related: CyberDefense Pro still lists "Pass Intro to Cybersecurity or Ethical
+   Hacker first" as its prerequisite. Intro to Cybersecurity is now a beginner
+   foundations course rather than a network-defense course, so decide whether
+   that prerequisite still does the work it used to.
+
 ---
 
 ## 6. Making a change
