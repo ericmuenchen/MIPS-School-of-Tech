@@ -294,10 +294,36 @@ Real, verified, and worth fixing. None are blocking.
    > break codes, build a cipher-driven escape room, and follow a message across
    > the internet from binary to packets to a web page.
 
+   `2026-2027-Course-Catalog.pdf` **was** regenerated from the HTML and is
+   current. `School-of-Technology-Program-Guide.pdf` is **not** — see gap 10.
+
    Related: CyberDefense Pro still lists "Pass Intro to Cybersecurity or Ethical
-   Hacker first" as its prerequisite. Intro to Cybersecurity is now a beginner
+   Hacker first" as its prerequisite, and the program guide repeats it as
+   "Either one opens the track." Intro to Cybersecurity is now a beginner
    foundations course rather than a network-defense course, so decide whether
    that prerequisite still does the work it used to.
+
+10. **The program guide PDF has no source in this repo.**
+    `School-of-Technology-Program-Guide.pdf` was exported from Google Docs
+    (`/Producer: Skia/PDF … Google Docs Renderer`), and its text is drawn with
+    subset CID fonts, so it cannot be edited in place or regenerated from
+    anything in git. The Cybersecurity track blurb in §4 still opens with the
+    retired course:
+
+    > **What you'll do:** Build and defend a business network, configure
+    > firewalls and VPNs, and manage identity and encryption. Learn the
+    > professional process for testing systems, …
+
+    The first sentence describes Intro to Cybersecurity and is now wrong; the
+    second describes Ethical Hacker and still stands. Suggested replacement for
+    the first sentence, to be made in the Google Doc and re-exported:
+
+    > Start with your own digital life, your data, your privacy, and the attacks
+    > to watch for, then make and break codes, set up and secure a computer, and
+    > follow a message across the internet.
+
+    Longer term, the guide belongs in this repo as hand-authored HTML like the
+    catalog, so it can be edited and re-printed alongside everything else.
 
 ---
 
@@ -326,8 +352,18 @@ stylesheet path and the bundle unpack.
    lowercase hyphenated slug.
 3. Add the course to the right track's `courses` array in the `index.html`
    template — **via the design canvas, not by hand** (§2a).
-4. Update `Course-Catalog.html` and, if it is being kept in sync, the catalog
-   PDF.
+4. Update `Course-Catalog.html`, then regenerate the catalog PDF from it (see
+   below).
+
+### Regenerating the catalog PDF
+
+`2026-2027-Course-Catalog.pdf` is a headless-Chrome print of
+`Course-Catalog.html` — nothing more. Serve the site, then print the page with
+`printBackground` on and `preferCSSPageSize` on so the document's own
+`@page{ size:letter; margin:0.7in }` rule wins, and write the result over the
+existing PDF. Any change to the catalog HTML should be followed by this, or the
+downloadable PDF drifts. It had drifted by three course descriptions before it
+was last regenerated.
 
 ### Syllabus authoring rules
 
