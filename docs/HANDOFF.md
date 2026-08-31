@@ -46,7 +46,7 @@ merging straight to `main` is fine.
 ## 1. What this is
 
 A **static, no-build website** for the MIPS School of Technology: a landing
-page, a course catalog, and ten printable course syllabi. There is no
+page, a course catalog, and eleven printable course syllabi. There is no
 framework, no package manager, no CI, and no compile step. Files are served
 exactly as they sit in the repository.
 
@@ -62,7 +62,7 @@ otherwise hide it and every syllabus would lose its stylesheet.
 | `src/index.template.html` | The landing page's real markup, decoded from the bundle. Edit this, not `index.html`. |
 | `tools/index-bundle.py` | Extracts, rebuilds and verifies the `index.html` / `src/` pair. |
 | `Course-Catalog.html` | The 2026–2027 catalog as a printable HTML document. |
-| `<Course-Name>.html` | Ten course syllabi, one file each, hand-authored. |
+| `<Course-Name>.html` | Eleven course syllabi, one file each, hand-authored. |
 | `2026-2027-Course-Catalog.pdf` | PDF catalog, offered as a download. |
 | `School-of-Technology-Program-Guide.pdf` | Program guide, offered as a download. |
 | `_ds/mips-design-system/` | The design system, in full source. Every syllabus and the catalog link its `styles.css`. |
@@ -122,8 +122,8 @@ What makes this trustworthy rather than a dressed-up find-and-replace:
   `1 1` after a copy change; anything else means something went wrong.
 - **The encoder is byte-exact.** Extract-then-build with no edits reproduces
   `index.html` with an identical checksum. The one non-obvious rule it
-  reproduces: the exporter escapes every `</` as `/` so no closing tag
-  inside the JSON string can end the `<script>` element early. `build` refuses
+  reproduces: the exporter escapes the `/` of every `</` as `\u002F`, so no
+  closing tag inside the JSON string can end the `<script>` element early. `build` refuses
   to write if a raw `</` or a newline survives into the encoded line.
 - **`build` renders the result.** It runs headless Chromium against the rebuilt
   file, waits for the loader, and dumps the post-JavaScript DOM. It fails if the
@@ -157,11 +157,12 @@ each holding **courses**:
 
 Course fields: `title`, `semester`, `grades`, `syllabus`, and the optional
 `prereq`, `formerly`, `summary`. A course with no `syllabus` key falls back to
-`'#'` — this is how the one syllabus-less course currently renders (§5).
+`'#'`. Every listed course now has one, so no card should be rendering `'#'` —
+if one is, its `syllabus` key is missing.
 
 ### 2b. The syllabi and catalog — plain HTML, edit freely
 
-`Course-Catalog.html` and the ten `<Course-Name>.html` files are ordinary,
+`Course-Catalog.html` and the eleven `<Course-Name>.html` files are ordinary,
 readable, hand-authored HTML. Each one:
 
 - links the design system: `<link rel="stylesheet" href="_ds/mips-design-system/styles.css">`
@@ -282,11 +283,21 @@ after.** That is the whole regression test.
 
 Real, verified, and worth fixing. None are blocking.
 
-1. **Web Design and Development II has no syllabus page.** The course is listed
-   on the landing page and has a course mark
-   (`assets/course-logos/web-design-and-development-ii.svg`), but there is no
-   `Web-Design-and-Development-II.html`, so its card links to `#`. Ten syllabi
-   exist for eleven listed courses.
+1. **~~Web Design and Development II has no syllabus page.~~ Fixed.**
+   `Web-Design-and-Development-II.html` now exists, built on Units 6–10 of the
+   CodeHS *Web Design (Picasso)* curriculum, and the landing page card links to
+   it. Eleven syllabi for eleven listed courses; no card renders `'#'` any more.
+
+   One scoping note for whoever picks this up. Unit 6 (*Project: Tell a Story*)
+   is scheduled in **both** semesters: `Web-Design-and-Development-I.html` runs
+   it across its weeks 15–18 as the Fall capstone, and the new Semester II
+   syllabus opens with it in weeks 1–2. That was deliberate — it gives students
+   who did not finish in January a way to land the project, and it fills the
+   two weeks before Bootstrap starts — but the site's own catalog and landing
+   page copy still describe Semester II as Bootstrap through the final project,
+   with no mention of Unit 6. If the overlap is not wanted, drop weeks 1–2 from
+   the Semester II schedule and start Unit 7 in week 1; there is slack for it,
+   since Units 7–10 need roughly 13 of the semester's 20 weeks.
 
 2. **`assets/logo/README.md` documents three files that do not exist:**
    `Logo.jsx`, `logo.html`, and `school-of-technology-logo.png`. The README

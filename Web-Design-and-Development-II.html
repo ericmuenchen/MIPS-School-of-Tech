@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Design and Development II Syllabus | Michigan International Prep School</title>
+<link rel="stylesheet" href="_ds/mips-design-system/styles.css">
+<style>
+  body{ background:var(--color-gray-100); }
+  .doc-page{ max-width:8.5in; margin:0 auto 48px; background:var(--color-white); box-shadow:var(--shadow-lg); border-radius:12px; padding:0.7in; }
+  @media print{
+    body{ background:var(--color-white); }
+    /* Chrome prints with "Background graphics" OFF by default, which drops the
+       navy panels these documents rely on: white body text and maize labels
+       would land on bare white paper. Force the colours to print. */
+    *, *::before, *::after{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+
+    /* ---- Ink-light printing ----
+       On screen this page uses solid navy panels and maize discs. Printed at
+       full size they flood the sheet with toner, so here they become white with
+       navy rules and navy text. These rules lean on borders and text colour
+       rather than fills, so the page also survives a printer set to skip
+       background graphics. */
+    .syl div[style*="background:var(--color-navy-700)"][style*="padding:26px 28px"]{
+      background:var(--color-white) !important;
+      border:1.5px solid var(--color-navy-700) !important; }
+    .syl div[style*="background:var(--color-navy-700)"][style*="padding:26px 28px"] *{
+      color:var(--color-ink-900) !important; }
+    .syl div[style*="background:var(--color-navy-700)"][style*="padding:26px 28px"] div[style*="color:var(--color-maize-500)"]{
+      color:var(--color-navy-700) !important; }
+    .syl th[style*="background:var(--color-navy-700)"]{
+      background:var(--color-white) !important; color:var(--color-navy-700) !important;
+      border-bottom:2px solid var(--color-navy-700) !important; }
+    .syl span[style*="background:var(--color-navy-700)"]{
+      background:var(--color-white) !important; color:var(--color-navy-700) !important;
+      border:1.5px solid var(--color-navy-700) !important; }
+    .syl span[style*="width:38px"][style*="background:var(--color-maize-500)"]{
+      background:var(--color-white) !important; color:var(--color-navy-700) !important;
+      border:1.5px solid var(--color-navy-700) !important; }
+    .syl span[style*="width:8px"][style*="background:var(--color-maize-500)"]{
+      background:var(--color-navy-700) !important; }
+    /* The page margin has to live on @page: padding on .doc-page only applies
+       at the very start and end of the block, so every page after the first
+       would start hard against the paper edge. */
+    .doc-page{ box-shadow:none; border-radius:0; margin:0; padding:0; max-width:none; }
+    @page{ size:letter; margin:0.7in; }
+  }
+    .syl h2{ text-wrap:balance; }
+    .syl p, .syl li, .syl td{ text-wrap:pretty; }
+    .syl-btn-solid:hover{ background:var(--color-navy-900, #011238) !important; }
+    .syl-btn-outline:hover{ background:var(--color-gray-100) !important; }
+    @media print{
+      .syl-actions{ display:none !important; }
+      .syl h2, .syl h3{ break-after:avoid; }
+      .syl tr, .syl thead{ break-inside:avoid; }
+      .syl table{ break-inside:auto; }
+      /* the tall "What You'll Learn" card is allowed to split; keeping it whole
+         stranded half of page 2 */
+      .syl div[style*="maize-50"], .syl div[style*="navy-700"], .syl div[style*="navy-50"]{ break-inside:avoid; }
+    }
+    /* School of Technology lockup. Proportions per assets/logo/README.md: every
+       dimension is a ratio of --sot-mark-h. Painted with the syllabus navy/maize
+       tokens so its hexagon matches the course mark opposite it exactly. */
+    .sot-lockup{ --sot-mark-h:42px; --sot-u:calc(var(--sot-mark-h) / 438);
+      --sot-hex:var(--color-navy-700); --sot-accent:var(--color-maize-500);
+      display:inline-flex; align-items:center; gap:calc(88 * var(--sot-u));
+      font-family:var(--font-display, Poppins, sans-serif); color:var(--color-navy-700);
+      text-transform:uppercase; line-height:1; }
+    .sot-lockup .sot-badge{ display:block; flex:none; height:var(--sot-mark-h); width:auto; }
+    .sot-lockup .sot-words{ display:flex; flex-direction:column; align-items:flex-start;
+      gap:calc(24 * var(--sot-u)); }
+    .sot-lockup .sot-l1{ font-size:calc(156 * var(--sot-u)); font-weight:400;
+      letter-spacing:0.089em; word-spacing:0.2em; white-space:nowrap; }
+    .sot-lockup .sot-l2{ font-size:calc(148 * var(--sot-u)); font-weight:700;
+      letter-spacing:0.01em; white-space:nowrap; }
+</style>
+</head>
+<body>
+<div class="syl-actions" style="max-width:8.5in;margin:32px auto 20px;padding:0 4px;display:flex;flex-wrap:wrap;align-items:center;gap:12px;">
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:8px;background:transparent;border:2px solid var(--color-navy-700);color:var(--color-navy-700);font-family:var(--font-display, Poppins, sans-serif);font-weight:700;font-size:14px;padding:9px 18px;border-radius:var(--radius-pill);text-decoration:none;transition:background 140ms ease;" class="syl-btn-outline">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+    Return to School of Technology
+  </a>
+  <button onclick="window.print()" style="display:inline-flex;align-items:center;gap:8px;background:var(--color-navy-700);border:2px solid var(--color-navy-700);color:var(--color-white);font-family:var(--font-display, Poppins, sans-serif);font-weight:700;font-size:14px;padding:9px 18px;border-radius:var(--radius-pill);cursor:pointer;transition:background 140ms ease;" class="syl-btn-solid">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg>
+    Download as PDF
+  </button>
+</div>
+<div class="doc-page">
+
+
+  <div class="syl" style="font:var(--text-body-md);color:var(--color-gray-600);">
+
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:10px;margin-bottom:26px;border-bottom:2px solid var(--color-maize-500);">
+      <span class="sot-lockup"><svg class="sot-badge" viewBox="0 0 800 700" aria-hidden="true" focusable="false"><polygon points="0,350 200,0 600,0 800,350 600,700 200,700" fill="var(--sot-hex)"></polygon><polygon points="60,350 230,53 570,53 740,350 570,647 230,647" fill="none" stroke="var(--sot-accent)" stroke-width="36"></polygon><g fill="none" stroke="var(--sot-accent)" stroke-width="15" stroke-linecap="butt"><path d="M118 270 H300 L360 210 H426"></path><path d="M74 345 H268 L300 313 H326"></path><path d="M118 430 H350 L383 397 H494"></path><path d="M155 490 H300 L340 530 H406"></path></g><g fill="var(--sot-hex)" stroke="var(--sot-accent)" stroke-width="15"><circle cx="448" cy="210" r="24"></circle><circle cx="350" cy="313" r="24"></circle><circle cx="518" cy="397" r="24"></circle><circle cx="430" cy="530" r="24"></circle></g></svg><span class="sot-words"><span class="sot-l1">School of</span><span class="sot-l2">Technology</span></span></span>
+      <span style="flex:none;display:inline-flex;align-items:center;gap:10px;"><img src="assets/course-logos/web-design-and-development-ii.svg" alt="" style="height:44px;width:auto;"><span style="flex:none;display:inline-flex;align-items:center;color:var(--color-navy-700);font:var(--text-caption);font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">Course Syllabus</span></span>
+    </div>
+
+
+    <!-- ===== TITLE ===== -->
+    <h1 style="font:var(--text-display-lg);font-size:38px;letter-spacing:var(--tracking-tight);color:var(--color-ink-900);margin:0 0 12px;white-space:nowrap;">Web Design &amp; Development II</h1>
+    <p style="font:var(--text-body-lg);color:var(--color-gray-600);margin:0 0 22px;max-width:60ch;">Semester 2 of Web Design: pick up where Web Design and Dev I left off and build responsive, user-tested sites people can actually use, at your pace.</p>
+
+    <div style="background:var(--color-white);box-shadow:var(--shadow-md);border-radius:var(--radius-lg);overflow:hidden;margin:4px 0 4px;">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);">
+        <div style="padding:16px 20px;border-bottom:1px solid var(--color-gray-300);border-right:1px solid var(--color-gray-300);"><div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-navy-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path><path d="M3 21v-5h5"></path></svg><div style="font:var(--text-caption);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-navy-700);font-weight:700;">Format</div></div><div style="font:var(--text-body-md);color:var(--color-ink-900);">Asynchronous</div></div>
+        <div style="padding:16px 20px;border-bottom:1px solid var(--color-gray-300);border-right:1px solid var(--color-gray-300);"><div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-navy-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M3 10h18M8 2v4M16 2v4"></path></svg><div style="font:var(--text-caption);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-navy-700);font-weight:700;">Term</div></div><div style="font:var(--text-body-md);color:var(--color-ink-900);white-space:nowrap;">Jan 19 – Jun 11, 2027</div></div>
+        <div style="padding:16px 20px;border-bottom:1px solid var(--color-gray-300);"><div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-navy-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><div style="font:var(--text-caption);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-navy-700);font-weight:700;">Duration</div></div><div style="font:var(--text-body-md);color:var(--color-ink-900);">1 semester</div></div>
+        <div style="padding:16px 20px;border-right:1px solid var(--color-gray-300);"><div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-navy-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg><div style="font:var(--text-caption);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-navy-700);font-weight:700;">Platform</div></div><div style="font:var(--text-body-md);color:var(--color-ink-900);">CodeHS &amp; Google Classroom</div></div>
+        <div style="padding:16px 20px;border-right:1px solid var(--color-gray-300);"><div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-navy-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><div style="font:var(--text-caption);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-navy-700);font-weight:700;">Instructor</div></div><div style="font:var(--text-body-md);color:var(--color-ink-900);">Eric Muenchen</div></div>
+        <div style="padding:16px 20px;border-right:1px solid var(--color-gray-300);"><div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-navy-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m2 7 10 6 10-6"></path></svg><div style="font:var(--text-caption);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-navy-700);font-weight:700;">Email</div></div><a href="mailto:muenchen@miprepschool.org" style="font:var(--text-body-md);color:var(--color-ink-900);text-decoration:none;">muenchen@miprepschool.org</a></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr;background:var(--color-maize-50);border-top:2px solid var(--color-maize-500);">
+        <div style="padding:16px 20px;display:flex;align-items:center;justify-content:center;gap:12px;">
+          <span style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:var(--radius-md);background:var(--color-maize-500);color:var(--color-navy-700);"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M3 10h18M8 2v4M16 2v4"></path></svg></span>
+          <div style="min-width:0;">
+            <div style="font:var(--text-caption);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-navy-700);font-weight:700;margin-bottom:2px;">1:1 Meeting</div>
+            <a href="https://calendar.app.google/VwDT7bxiLayuJHww9" target="_blank" style="display:inline-flex;align-items:center;gap:4px;font:var(--text-body-md);color:var(--color-navy-700);font-weight:700;text-decoration:underline;white-space:nowrap;">Schedule time<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--color-navy-700)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ===== COURSE DESCRIPTION ===== -->
+    <div style="height:5px;width:44px;background:var(--color-maize-500);border-radius:var(--radius-pill);margin:40px 0 14px;"></div>
+    <h2 style="font:var(--text-display-sm);letter-spacing:var(--tracking-tight);color:var(--color-ink-900);margin:0 0 12px;">Course Description</h2>
+    <p style="margin:0 0 14px;">Web Design and Dev II is the second semester of the Web Design pathway and continues directly where Web Design and Dev I left off. Last semester you learned to write HTML and CSS by hand and published a live portfolio. This semester is about building sites other people can actually use: sites that fit any screen, that lean on professional tools instead of starting from nothing, and that get better because you tested them with real people.</p>
+    <p style="margin:0 0 0;">The semester runs through five units. You&rsquo;ll open by bringing your animated <strong style="color:var(--color-ink-900);">&ldquo;Tell a Story&rdquo;</strong> page into your portfolio, then learn <strong style="color:var(--color-ink-900);">Bootstrap</strong>: page layouts, open-source components, navigation bars, the grid system, and mobile responsive design. You&rsquo;ll put that to work in a <strong style="color:var(--color-ink-900);">team Bootstrap project</strong>, study <strong style="color:var(--color-ink-900);">user-interface design</strong> (accessibility, readability, user research, and prototyping), and close with a <strong style="color:var(--color-ink-900);">final project</strong> you scope, design, prototype, test, and build from scratch.</p>
+
+    <!-- ===== HOW THIS COURSE WORKS ===== -->
+    <div style="height:5px;width:44px;background:var(--color-maize-500);border-radius:var(--radius-pill);margin:40px 0 14px;"></div>
+    <h2 style="font:var(--text-display-sm);letter-spacing:var(--tracking-tight);color:var(--color-ink-900);margin:0 0 12px;">How This Course Works</h2>
+    <p style="margin:0 0 16px;">This is an <strong style="color:var(--color-ink-900);">asynchronous online</strong> course delivered through <strong style="color:var(--color-ink-900);">CodeHS</strong>, where you&rsquo;ll write and publish your code right in the browser, with nothing to install. Each unit is broken into lessons made of short video tutorials, quick quizzes, example pages to explore, and hands-on exercises where you build and publish your own sites. Assignments, feedback, and announcements live in <strong style="color:var(--color-ink-900);">Google Classroom</strong>. Two of this semester&rsquo;s units are <strong style="color:var(--color-ink-900);">team projects</strong>, so a few weeks will ask you to coordinate with classmates as well as work at your own pace. Keep up with the weekly checkpoints on the schedule so projects don&rsquo;t stack up.</p>
+    <div style="background:var(--color-maize-50);border-radius:var(--radius-lg);padding:20px 24px;">
+      <div style="font:var(--text-label);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-navy-700);margin-bottom:8px;">Use Chrome for the best experience</div>
+      <p style="margin:0;color:var(--color-gray-600);">Browsers render HTML and CSS a little differently, so do your coding in an up-to-date version of Google Chrome. It&rsquo;s free, and it&rsquo;s what the CodeHS editor is built and tested against.</p>
+    </div>
+
+    <!-- ===== WHAT YOU'LL LEARN ===== -->
+    <div style="height:5px;width:44px;background:var(--color-maize-500);border-radius:var(--radius-pill);margin:40px 0 14px;"></div>
+    <h2 style="font:var(--text-display-sm);letter-spacing:var(--tracking-tight);color:var(--color-ink-900);margin:0 0 16px;">What You'll Learn</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;align-items:start;">
+      <div style="background:var(--color-white);box-shadow:var(--shadow-md);border-radius:var(--radius-lg);padding:20px 22px;">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:6px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-navy-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg><div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);">Build with Bootstrap</div></div>
+        <p style="margin:0;line-height:1.55;">Read the documentation and use open-source components, navigation bars, and the grid to lay out a page fast.</p>
+      </div>
+      <div style="background:var(--color-white);box-shadow:var(--shadow-md);border-radius:var(--radius-lg);padding:20px 22px;">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:6px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-navy-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"></rect><path d="M12 18h.01"></path></svg><div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);">Design for Every Screen</div></div>
+        <p style="margin:0;line-height:1.55;">Build mobile responsive sites that stay readable from a phone to a wide monitor.</p>
+      </div>
+      <div style="background:var(--color-white);box-shadow:var(--shadow-md);border-radius:var(--radius-lg);padding:20px 22px;">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:6px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-navy-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);">Design for People</div></div>
+        <p style="margin:0;line-height:1.55;">Research the people you are building for, write a clear problem statement, and judge an interface for accessibility and readability.</p>
+      </div>
+      <div style="background:var(--color-white);box-shadow:var(--shadow-md);border-radius:var(--radius-lg);padding:20px 22px;">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:6px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-navy-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg><div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);">Prototype and Test</div></div>
+        <p style="margin:0;line-height:1.55;">Sketch on paper, test with real users, and improve the design before you write a line of code.</p>
+      </div>
+    </div>
+
+    <!-- ===== GRADING ===== -->
+    <div style="height:5px;width:44px;background:var(--color-maize-500);border-radius:var(--radius-pill);margin:40px 0 14px;"></div>
+    <h2 style="font:var(--text-display-sm);letter-spacing:var(--tracking-tight);color:var(--color-ink-900);margin:0 0 8px;">Grading</h2>
+    <p style="margin:0 0 18px;">Your grade is built from lesson exercises, unit quizzes, and the projects you design, test, and publish, weighted toward the work you build and revise. These are the graded pieces this semester:</p>
+    <div style="background:var(--color-gray-100);border-radius:var(--radius-md);padding:18px 22px;">
+      <ol style="margin:0;padding-left:20px;line-height:1.8;column-count:2;column-gap:32px;">
+        <li>&ldquo;Tell a Story&rdquo; portfolio page</li>
+        <li>Bootstrap exercises</li>
+        <li>Bootstrap Team Project</li>
+        <li>User research &amp; prototypes</li>
+        <li>UI Design Project</li>
+        <li>Final Project</li>
+        <li>Lesson &amp; unit quizzes</li>
+      </ol>
+    </div>
+
+    <!-- ===== SCHEDULE ===== -->
+    <div style="height:5px;width:44px;background:var(--color-maize-500);border-radius:var(--radius-pill);margin:44px 0 14px;"></div>
+    <h2 style="font:var(--text-display-sm);letter-spacing:var(--tracking-tight);color:var(--color-ink-900);margin:0 0 6px;">Semester Schedule</h2>
+    <p style="margin:0 0 20px;">This is a self-paced, week-by-week roadmap through Units 6 to 10. Each row lists what you should be able to do by the end of that week to stay on track. Dates are checkpoints, not hard walls, and a &starf; marks a portfolio project milestone.</p>
+
+    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:0 0 10px;">Weeks 1&ndash;8 &middot; Story Page &amp; Bootstrap</div>
+    <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;margin-bottom:8px;">
+      <thead>
+        <tr>
+          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:62px;">Week</th>
+          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:110px;">Dates</th>
+          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">By the end of this week you should&hellip;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">1</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Jan 19&ndash;22</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Unit 6 begins.</strong> Project: Tell a Story. Plan the animated, interactive page you&rsquo;ll build, sketch its scenes and interactions, and lay down the HTML structure.</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">2</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Jan 25&ndash;29</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">&starf; Unit 6 wraps.</strong> Style the scenes with CSS, add the animations and the hover and click effects, then publish <em>Tell a Story</em> to your portfolio site.</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">3</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Feb 1&ndash;5</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Unit 7 begins.</strong> Creating Page Layouts and Open Source Software. Add Bootstrap to a page and see what a framework hands you for free.</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">4</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Feb 8&ndash;12</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Unit 7.</strong> Bootstrap Components and Reading Documentation. Build an alert that greets a visitor the first time they land on your page.</td></tr>
+        <tr><td colspan="3" style="padding:7px 12px;border:1px solid var(--color-gray-300);background:var(--color-navy-50);color:var(--color-navy-700);font-style:italic;font-weight:600;">Presidents&rsquo; Day &middot; Feb 15 &middot; no new lessons</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">5</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Feb 16&ndash;19</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Unit 7.</strong> Navigation Bars. Build a page with a sticky top navigation bar, then one with a sticky bottom bar.</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">6</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Feb 22&ndash;26</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Unit 7.</strong> The Bootstrap Grid System. Lay a page out in rows and columns that rearrange themselves as the screen changes.</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">7</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Mar 1&ndash;5</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Unit 7.</strong> Creating Mobile Responsive Websites. Make one page work on a phone, a tablet, and a wide monitor.</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">8</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Mar 8&ndash;12</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Unit 7 wraps.</strong> Utilizing Bootstrap Examples. Adapt an official Bootstrap example into a page of your own, then take the Unit 7 quiz.</td></tr>
+      </tbody>
+    </table>
+
+    <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-navy-700);margin:26px 0 10px;">Weeks 9&ndash;20 &middot; Team Project, UI Design &amp; Final Project</div>
+    <table style="width:100%;border-collapse:collapse;font:var(--text-body-sm);font-size:13.5px;">
+      <thead>
+        <tr>
+          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:62px;">Week</th>
+          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);width:110px;">Dates</th>
+          <th style="text-align:left;background:var(--color-navy-700);color:var(--color-white);font-weight:700;padding:9px 12px;border:1px solid var(--color-navy-700);">By the end of this week you should&hellip;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">9</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Mar 15&ndash;19</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Unit 8 begins.</strong> Bootstrap Project. Form your team, agree who is building what, and wireframe a professional, responsive site.</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">10</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Mar 22&ndash;26</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">&starf; Unit 8 wraps.</strong> Build and publish the team site with Bootstrap, then look at another team&rsquo;s site and give them useful feedback.</td></tr>
+        <tr><td colspan="3" style="padding:7px 12px;border:1px solid var(--color-gray-300);background:var(--color-navy-50);color:var(--color-navy-700);font-style:italic;font-weight:600;">Spring Break &middot; Mar 29&ndash;Apr 2 &middot; no new lessons</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">11</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Apr 5&ndash;9</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">State Testing Window &mdash; review previous units, no new lessons.</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">12</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Apr 12&ndash;16</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">State Testing Window &mdash; review previous units, no new lessons.</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">13</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Apr 19&ndash;23</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">State Testing Window &mdash; <strong style="color:var(--color-ink-900);">Unit 9 begins.</strong> Designing User Interfaces. Research and assess interfaces you already use: what makes one engaging, and where does it get in your way?</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">14</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Apr 26&ndash;30</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Unit 9.</strong> UI design techniques, accessibility, and readability. Judge a site on whether people can actually read and use it.</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">15</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">May 3&ndash;7</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Unit 9.</strong> Research a problem, gather insight from the people it affects, write a clear problem statement, and generate possible solutions.</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">16</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">May 10&ndash;14</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">&starf; Unit 9 wraps.</strong> Rapid prototyping and user testing: design on paper, test with peers, improve before you code. Present a UI technique and build a live example of it.</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">17</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">May 17&ndash;21</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Unit 10 begins.</strong> Final Project. Brainstorm ideas, scope the site down to what you can finish, and plan milestones for building it a piece at a time.</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">18</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">May 24&ndash;28</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Unit 10.</strong> Design each page you plan to build, prototype the designs, and improve them with feedback from real users.</td></tr>
+        <tr><td colspan="3" style="padding:7px 12px;border:1px solid var(--color-gray-300);background:var(--color-navy-50);color:var(--color-navy-700);font-style:italic;font-weight:600;">Memorial Day &middot; May 31 &middot; no new lessons</td></tr>
+        <tr><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">19</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Jun 1&ndash;4</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">Unit 10.</strong> Build the site one milestone at a time, testing and revising as you go.</td></tr>
+        <tr style="background:var(--color-gray-100);"><td style="padding:8px 12px;border:1px solid var(--color-gray-300);color:var(--color-ink-900);font-weight:700;">20</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);">Jun 7&ndash;11</td><td style="padding:8px 12px;border:1px solid var(--color-gray-300);"><strong style="color:var(--color-ink-900);">&starf; Unit 10 due Jun 11.</strong> Finish, test, and publish your final website; final semester submissions due.</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ===== POLICIES ===== -->
+    <div style="height:5px;width:44px;background:var(--color-maize-500);border-radius:var(--radius-pill);margin:44px 0 14px;"></div>
+    <h2 style="font:var(--text-display-sm);letter-spacing:var(--tracking-tight);color:var(--color-ink-900);margin:0 0 16px;">Course Policies</h2>
+
+    <h3 style="font:var(--text-label);font-size:18px;line-height:1.3;color:var(--color-ink-900);margin:0 0 6px;">Pacing &amp; deadlines</h3>
+    <p style="margin:0 0 18px;">The course is self-paced, but the schedule&rsquo;s weekly checkpoints keep you on track to finish the semester. If you fall behind, don&rsquo;t panic: message me and we&rsquo;ll make a plan to catch up. Steady weekly progress beats last-minute cramming every time.</p>
+
+    <h3 style="font:var(--text-label);font-size:18px;line-height:1.3;color:var(--color-ink-900);margin:0 0 6px;">Late work &amp; revision</h3>
+    <p style="margin:0 0 18px;">Late work is accepted: getting it right matters more than getting it in first. Because coding is about iteration, you may revise and resubmit exercises and projects to improve your grade. Growth counts here more than penalties.</p>
+
+    <h3 style="font:var(--text-label);font-size:18px;line-height:1.3;color:var(--color-ink-900);margin:0 0 6px;">Team projects</h3>
+    <p style="margin:0 0 18px;">Units 8 and 10 are built with a team. In an asynchronous course that takes a little planning: we&rsquo;ll agree on who owns which pages and how you&rsquo;ll keep in touch before the building starts. If a teammate goes quiet, tell me early rather than absorbing their work in the last week.</p>
+
+    <h3 style="font:var(--text-label);font-size:18px;line-height:1.3;color:var(--color-ink-900);margin:0 0 0;">Communication</h3>
+    <p style="margin:0 0 0;">Email me or book a 1:1 through the scheduling link above; I usually reply within one school day. Lessons and exercises live in CodeHS, and feedback, grades, and announcements live in Google Classroom; check both regularly.</p>
+
+    <!-- ===== AI POLICY ===== -->
+    <div style="margin-top:36px;background:var(--color-navy-700);border-radius:var(--radius-lg);padding:26px 28px;color:var(--color-white);">
+      <div style="font:var(--text-label);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-maize-500);margin-bottom:10px;">AI Policy</div>
+      <p style="margin:0 0 16px;color:var(--color-white);font:var(--text-display-sm);font-size:22px;line-height:1.35;letter-spacing:var(--tracking-tight);">The goal is for <em style="font-style:normal;text-decoration:underline;text-decoration-color:var(--color-maize-500);text-underline-offset:3px;">you</em> to be able to write and understand the code.</p>
+      <p style="margin:0 0 14px;color:var(--color-white);font:var(--text-body-md);line-height:1.7;">AI tools can explain a concept or help you find a bug, and used that way they&rsquo;re a great tutor. But if the tool writes the page for you, you haven&rsquo;t learned to build web pages, which is the entire point of this course. Lean on AI to understand, not to replace the work.</p>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;">
+        <li style="display:flex;gap:12px;align-items:flex-start;color:var(--color-white);font:var(--text-body-md);line-height:1.6;"><span style="flex:none;width:8px;height:8px;margin-top:9px;border-radius:var(--radius-pill);background:var(--color-maize-500);"></span><span>You may use AI to explain concepts, define terms, or help you understand an error message.</span></li>
+        <li style="display:flex;gap:12px;align-items:flex-start;color:var(--color-white);font:var(--text-body-md);line-height:1.6;"><span style="flex:none;width:8px;height:8px;margin-top:9px;border-radius:var(--radius-pill);background:var(--color-maize-500);"></span><span>Do not paste AI-generated HTML or CSS in as your own: submitted code should be code you can read and explain.</span></li>
+        <li style="display:flex;gap:12px;align-items:flex-start;color:var(--color-white);font:var(--text-body-md);line-height:1.6;"><span style="flex:none;width:8px;height:8px;margin-top:9px;border-radius:var(--radius-pill);background:var(--color-maize-500);"></span><span>I may ask you to walk me through how your project works; if you built it, that&rsquo;s an easy conversation.</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  </div>
+</body>
+</html>

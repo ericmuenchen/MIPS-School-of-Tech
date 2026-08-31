@@ -1,7 +1,7 @@
 # MIPS School of Technology — website
 
 Static, no-build site for the MIPS School of Technology: a landing page, a
-course catalog, and ten printable course syllabi. No framework, no package
+course catalog, and eleven printable course syllabi. No framework, no package
 manager, no compile step. Files are served as they sit.
 
 Full context: **`docs/HANDOFF.md`**. Read it before any non-trivial change.
