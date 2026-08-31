@@ -284,20 +284,23 @@ after.** That is the whole regression test.
 Real, verified, and worth fixing. None are blocking.
 
 1. **~~Web Design and Development II has no syllabus page.~~ Fixed.**
-   `Web-Design-and-Development-II.html` now exists, built on Units 6–10 of the
+   `Web-Design-and-Development-II.html` now exists, built on Units 7–10 of the
    CodeHS *Web Design (Picasso)* curriculum, and the landing page card links to
    it. Eleven syllabi for eleven listed courses; no card renders `'#'` any more.
 
-   One scoping note for whoever picks this up. Unit 6 (*Project: Tell a Story*)
-   is scheduled in **both** semesters: `Web-Design-and-Development-I.html` runs
-   it across its weeks 15–18 as the Fall capstone, and the new Semester II
-   syllabus opens with it in weeks 1–2. That was deliberate — it gives students
-   who did not finish in January a way to land the project, and it fills the
-   two weeks before Bootstrap starts — but the site's own catalog and landing
-   page copy still describe Semester II as Bootstrap through the final project,
-   with no mention of Unit 6. If the overlap is not wanted, drop weeks 1–2 from
-   the Semester II schedule and start Unit 7 in week 1; there is slack for it,
-   since Units 7–10 need roughly 13 of the semester's 20 weeks.
+   The unit split between the two semesters is settled: **Semester I ends with
+   Unit 6** (*Project: Tell a Story*, its weeks 15–18) and **Semester II opens
+   with Unit 7** (Bootstrap). No unit is scheduled twice. This matches the
+   catalog and landing-page copy, which describe Semester II as Bootstrap
+   through the final project.
+
+   Units 7–10 carry roughly 13 weeks of CodeHS content and the Winter semester
+   has 20 instructional weeks, so the schedule stretches them deliberately
+   rather than finishing early: Unit 7 over 7 weeks, Unit 8 over 3, Unit 9 over
+   5, Unit 10 over 3, plus the two state-testing review weeks. Unit 7's seven
+   weeks map one curriculum topic per week (with page layouts and open source
+   paired in week 1). If the content ever needs re-fitting, that stretch is the
+   slack to adjust.
 
 2. **`assets/logo/README.md` documents three files that do not exist:**
    `Logo.jsx`, `logo.html`, and `school-of-technology-logo.png`. The README
