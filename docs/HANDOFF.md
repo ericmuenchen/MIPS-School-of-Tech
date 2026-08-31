@@ -59,6 +59,8 @@ otherwise hide it and every syllabus would lose its stylesheet.
 | Path | What it is |
 | --- | --- |
 | `index.html` | Landing page: hero, five pathway tracks, eleven course cards, resource CTAs, contact. **Generated — see §2.** |
+| `src/index.template.html` | The landing page's real markup, decoded from the bundle. Edit this, not `index.html`. |
+| `tools/index-bundle.py` | Extracts, rebuilds and verifies the `index.html` / `src/` pair. |
 | `Course-Catalog.html` | The 2026–2027 catalog as a printable HTML document. |
 | `<Course-Name>.html` | Ten course syllabi, one file each, hand-authored. |
 | `2026-2027-Course-Catalog.pdf` | PDF catalog, offered as a download. |
@@ -75,7 +77,7 @@ otherwise hide it and every syllabus would lose its stylesheet.
 This is the single most important thing to understand before editing anything.
 The files look alike and are edited in completely different ways.
 
-### 2a. `index.html` — generated, do not hand-edit
+### 2a. `index.html` — generated; edit `src/index.template.html` instead
 
 `index.html` is a **Claude Design canvas export**, not source. It is ~2 MB
 across 397 lines because it is a self-contained bundle. Its structure:
@@ -86,17 +88,59 @@ across 397 lines because it is a self-contained bundle. Its structure:
   the MIPS logo PNG
 - `<script type="__bundler/ext_resources">` — maps the original unpkg CDN URLs
   to those embedded blobs
-- `<script type="__bundler/template">` — the actual page markup and logic, HTML-escaped inside the attribute
+- `<script type="__bundler/template">` — the actual page markup and logic,
+  JSON-encoded onto **one 76 KB line**
 
 Consequences:
 
 - **The landing page has zero network dependencies.** Fonts and React are
   embedded. It renders offline and cannot break because a CDN changed.
-- **Hand-editing it is a mistake.** The real markup is escaped inside a script
-  tag; a find-and-replace will corrupt the bundle in ways that fail silently.
-- Edit it by reopening the design canvas that produced it and re-exporting, or
-  by replacing it wholesale with a hand-authored page. Do not split the
-  difference.
+- **Hand-editing the bundle is still a mistake.** Four of its lines are
+  enormous, the markup is JSON-encoded rather than plain, and a stray quote or
+  newline breaks the page in ways that fail silently rather than loudly.
+
+#### The editing path
+
+`tools/index-bundle.py` splits the bundle from the markup so ordinary copy
+changes are ordinary file edits:
+
+```bash
+python3 tools/index-bundle.py extract   # index.html -> src/index.template.html
+# edit src/index.template.html with any tool
+python3 tools/index-bundle.py build     # src/index.template.html -> index.html
+python3 tools/index-bundle.py verify    # render index.html, check it unpacks
+```
+
+`src/index.template.html` is that 76 KB line decoded: 1,464 lines of readable
+HTML and JSX, greppable and safe to edit line by line. Commit it alongside
+`index.html`.
+
+What makes this trustworthy rather than a dressed-up find-and-replace:
+
+- **`build` touches exactly one line.** Everything else — all 50 base64 assets —
+  is copied through byte for byte. `git diff --numstat index.html` reports
+  `1 1` after a copy change; anything else means something went wrong.
+- **The encoder is byte-exact.** Extract-then-build with no edits reproduces
+  `index.html` with an identical checksum. The one non-obvious rule it
+  reproduces: the exporter escapes every `</` as `/` so no closing tag
+  inside the JSON string can end the `<script>` element early. `build` refuses
+  to write if a raw `</` or a newline survives into the encoded line.
+- **`build` renders the result.** It runs headless Chromium against the rebuilt
+  file, waits for the loader, and dumps the post-JavaScript DOM. It fails if the
+  bundle did not unpack, or if the site title, the course cards, or the contact
+  address are missing. Set `CHROME_BIN` if Chromium is somewhere unusual; the
+  check is skipped with a warning if none is found.
+
+**Re-exporting from the canvas is still the right move for structural work** —
+new sections, layout changes, anything visual. The export replaces `index.html`
+wholesale, which leaves `src/index.template.html` stale, so run
+`python3 tools/index-bundle.py extract --force` straight afterwards to bring it
+back in step. Plain `extract` refuses to overwrite a template holding edits that
+were never built in, so it will not silently eat work.
+
+If the export format ever changes, `extract` fails loudly rather than guessing:
+it checks that the template line round-trips through its own encoder before
+writing anything.
 
 The page's content model lives in the template as a `raw` array of **tracks**,
 each holding **courses**:
@@ -281,25 +325,18 @@ Real, verified, and worth fixing. None are blocking.
    `<Course-Name>.html`** — those are the current reference. Re-derive the
    template from a current syllabus before using it as a starting point again.
 
-9. **The landing page's Intro to Cybersecurity summary is stale.** That course
-   was rebuilt on the CodeHS *Fundamentals of Cybersecurity* content (modules
-   1–5), and `Intro-to-Cybersecurity.html` and `Course-Catalog.html` were
-   updated to match. The `summary` in the `index.html` template still describes
-   the retired MICE version ("Build, manage, and protect a secure business
-   network…"). Because `index.html` must not be hand-edited (§2a), fix it in the
-   design canvas and re-export. Suggested replacement:
-
-   > Start with the digital world you already live in: your digital footprint,
-   > the data companies collect, and the attacks to watch for. Then make and
-   > break codes, build a cipher-driven escape room, and follow a message across
-   > the internet from binary to packets to a web page.
+9. **~~The landing page's Intro to Cybersecurity summary is stale.~~ Fixed.**
+   That course was rebuilt on the CodeHS *Fundamentals of Cybersecurity*
+   content (modules 1–5); `Intro-to-Cybersecurity.html` and
+   `Course-Catalog.html` were updated to match, and the landing page card now
+   is too, through `src/index.template.html` and the §2a build.
 
    `2026-2027-Course-Catalog.pdf` **was** regenerated from the HTML and is
    current. `School-of-Technology-Program-Guide.pdf` is **not** — see gap 10.
 
-   Related: CyberDefense Pro still lists "Pass Intro to Cybersecurity or Ethical
-   Hacker first" as its prerequisite, and the program guide repeats it as
-   "Either one opens the track." Intro to Cybersecurity is now a beginner
+   Still open, and related: CyberDefense Pro lists "Pass Intro to Cybersecurity
+   or Ethical Hacker first" as its prerequisite, and the program guide repeats
+   it as "Either one opens the track." Intro to Cybersecurity is now a beginner
    foundations course rather than a network-defense course, so decide whether
    that prerequisite still does the work it used to.
 
@@ -350,8 +387,9 @@ stylesheet path and the bundle unpack.
 2. Add the course mark to `assets/course-logos/` as a `viewBox="0 0 200 176"`
    SVG, navy `#02225A` hexagon with a maize `#FFE000` inner outline, named as a
    lowercase hyphenated slug.
-3. Add the course to the right track's `courses` array in the `index.html`
-   template — **via the design canvas, not by hand** (§2a).
+3. Add the course to the right track's `courses` array in
+   `src/index.template.html`, then `python3 tools/index-bundle.py build` (§2a).
+   Do not edit `index.html` itself.
 4. Update `Course-Catalog.html`, then regenerate the catalog PDF from it (see
    below).
 
@@ -431,12 +469,15 @@ guidelines, calendar, both templates — is in git and travels with the repo.
 
 ### Do this before switching
 
-1. **Decide what happens to the landing page.** Either re-create the canvas in
-   the new account from `MarketingSite.dc.html` plus the current `index.html`,
-   or re-author the page as plain HTML. Given that every other page in this
-   repo is hand-authored HTML, re-authoring the landing page to match is a
-   reasonable simplification, not a downgrade — and it would retire the
-   "never hand-edit this file" rule entirely.
+1. **Decide what happens to the landing page.** Copy edits and course-list
+   changes no longer need the canvas at all — `src/index.template.html` plus
+   `tools/index-bundle.py` (§2a) cover those in either account. What a canvas
+   still buys is visual and structural work. So either re-create it in the new
+   account from `MarketingSite.dc.html` plus the current `index.html`, or
+   re-author the page as plain HTML. Given that every other page in this repo
+   is hand-authored HTML, re-authoring the landing page to match is a
+   reasonable simplification, not a downgrade — `src/index.template.html` is
+   already most of the way there, being the real markup in readable form.
 2. **Re-authorise GitHub on the new account** for
    `ericmuenchen/MIPS-School-of-Tech`, and confirm the account can push.
 3. **Check Settings → Pages still points at `main`** from the repository root.

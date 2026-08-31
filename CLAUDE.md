@@ -8,11 +8,25 @@ Full context: **`docs/HANDOFF.md`**. Read it before any non-trivial change.
 
 ## Hard rules
 
-**Never hand-edit `index.html`.** It is a generated Claude Design canvas export
-— a self-contained bundle with 50 base64 assets (React, Babel, 40+ woff2 fonts)
-and the real markup HTML-escaped inside a `<script type="__bundler/template">`
-tag. Find-and-replace corrupts it silently. Change it through the design canvas
-and re-export, or replace the file wholesale.
+**Never hand-edit `index.html`.** It is a generated Claude Design canvas export:
+a self-contained bundle with 50 base64 assets (React, Babel, 40+ woff2 fonts)
+and the real markup JSON-encoded onto a single 76 KB line inside a
+`<script type="__bundler/template">` tag. Find-and-replace corrupts it silently.
+
+Edit `src/index.template.html` instead. It is that markup, decoded into an
+ordinary 1,464-line HTML file, and `tools/index-bundle.py` moves between the two:
+
+```bash
+python3 tools/index-bundle.py extract   # index.html -> src/index.template.html
+# edit src/index.template.html like any other file
+python3 tools/index-bundle.py build     # src/index.template.html -> index.html
+```
+
+`build` rewrites only the template line, leaving every asset byte untouched, and
+then renders the result in headless Chromium to prove the bundle still unpacks.
+Commit both files together. Re-export from the design canvas is still fine for
+structural work: it replaces `index.html` wholesale, so run `extract --force`
+afterwards to bring `src/` back in step.
 
 **Never delete `.nojekyll`.** It is what lets GitHub Pages serve `_ds/`; without
 it every syllabus loses its stylesheet.
@@ -25,6 +39,9 @@ it every syllabus loses its stylesheet.
 ## Layout
 
 - `index.html` — landing page. Generated. See above.
+- `src/index.template.html` — the landing page's real markup, decoded. This is
+  the file you edit; `index.html` is built from it.
+- `tools/index-bundle.py` — extract / build / verify for the pair above.
 - `Course-Catalog.html`, `<Course-Name>.html` — plain hand-authored HTML. Edit
   these freely. Each links `_ds/mips-design-system/styles.css` and wraps content
   in `.doc-page` (8.5in, 0.7in padding).

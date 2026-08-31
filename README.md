@@ -40,5 +40,11 @@ stylesheet path and the landing-page bundle.
 ## Before you edit
 
 `index.html` is a **generated bundle**, not source — hand-editing it will
-corrupt it. The syllabi and catalog are plain HTML and can be edited directly.
+corrupt it. Edit `src/index.template.html` and rebuild:
+
+```bash
+python3 tools/index-bundle.py build
+```
+
+The syllabi and catalog are plain HTML and can be edited directly.
 `docs/HANDOFF.md` §2 explains the difference.
