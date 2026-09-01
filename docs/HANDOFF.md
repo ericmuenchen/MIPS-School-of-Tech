@@ -376,6 +376,35 @@ Real, verified, and worth fixing. None are blocking.
     Longer term, the guide belongs in this repo as hand-authored HTML like the
     catalog, so it can be edited and re-printed alongside everything else.
 
+11. **The program guide PDF still describes the old grade eligibility.**
+    Middle school students (grades 6, 7, and 8) may now take only two courses:
+    Exploring Technology and Art and Intro to Python. Every other course is
+    grades 9–12. `Course-Catalog.html`, `src/index.template.html` (and the
+    `index.html` built from it), and `2026-2027-Course-Catalog.pdf` were all
+    updated: the five courses that used to read "Grades 7–12" (Intro to
+    Cybersecurity, Ethical Hacker, IT Fundamentals, Web Design and Dev I, Web
+    Design and Dev II) now read "Grades 9–12".
+
+    `School-of-Technology-Program-Guide.pdf` could not be, for the reason in
+    gap 10. Its §2, *Who the Program Is For*, still says:
+
+    > Courses are open to students in grades 6 through 12. The Foundations of
+    > Programming courses start at grade 6, most of the introductory courses
+    > open at grade 7, and the advanced, certification-aligned courses are
+    > limited to grades 9 through 12.
+
+    Replacement to be made in the Google Doc and re-exported:
+
+    > Middle school students take the two Foundations of Programming courses:
+    > Exploring Technology and Art and Intro to Python, both open to grades 6
+    > through 12. Every other course is open to grades 9 through 12. The table
+    > in Section 4 gives the range for each course. You can start with no
+    > experience at all at any grade level.
+
+    Nothing else in the guide states a per-course grade range. The Tech Talk
+    Friday table (grades 6–8 and grades 9–12 sessions) still stands: the grade
+    bands are for the sessions, not for course eligibility.
+
 ---
 
 ## 6. Making a change
