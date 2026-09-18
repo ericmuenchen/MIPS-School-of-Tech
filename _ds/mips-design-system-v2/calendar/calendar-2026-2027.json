@@ -1,0 +1,57 @@
+{
+  "schoolYear": "2026-2027",
+  "source": "MIPS Staff Calendar 2026-2027 (uploads/calendar-2026-2027.pdf)",
+  "note": "Student-facing academic dates derived from the staff calendar. A MIPS course syllabus covers exactly ONE semester (Fall = Semester 1, or Winter = Semester 2). Build the schedule from that semester's instructional weeks below, inserting the listed breaks as no-new-lessons rows.",
+  "instructor": {
+    "name": "Eric Muenchen",
+    "email": "muenchen@miprepschool.org"
+  },
+  "semesters": {
+    "fall": {
+      "label": "First Semester",
+      "shortLabel": "Semester 1",
+      "firstDay": "2026-08-25",
+      "lastDay": "2027-01-15",
+      "termLabel": "Aug 25 – Jan 15, 2027",
+      "breaks": [
+        { "name": "Labor Day Break", "range": "Sep 4–7", "start": "2026-09-04", "end": "2026-09-07" },
+        { "name": "Thanksgiving Break", "range": "Nov 23–27", "start": "2026-11-23", "end": "2026-11-27" },
+        { "name": "Winter Break", "range": "Dec 21 – Jan 1", "start": "2026-12-21", "end": "2027-01-01" }
+      ],
+      "instructionalWeeks": [
+        "Aug 25–28", "Aug 31–Sep 3", "Sep 8–11", "Sep 14–18", "Sep 21–25",
+        "Sep 28–Oct 2", "Oct 5–9", "Oct 12–16", "Oct 19–23", "Oct 26–30",
+        "Nov 2–6", "Nov 9–13", "Nov 16–20", "Nov 30–Dec 4", "Dec 7–11",
+        "Dec 14–18", "Jan 4–8", "Jan 11–15"
+      ],
+      "instructionalWeekCount": 18
+    },
+    "winter": {
+      "label": "Second Semester",
+      "shortLabel": "Semester 2",
+      "firstDay": "2027-01-19",
+      "lastDay": "2027-06-11",
+      "termLabel": "Jan 19 – Jun 11, 2027",
+      "breaks": [
+        { "name": "Presidents' Day", "range": "Feb 15", "start": "2027-02-15", "end": "2027-02-15" },
+        { "name": "Spring Break", "range": "Mar 29 – Apr 2", "start": "2027-03-29", "end": "2027-04-02" },
+        { "name": "State Testing Window", "range": "Apr 6–23", "start": "2027-04-06", "end": "2027-04-23", "note": "Testing blackout — lighten or pause new lessons." },
+        { "name": "Memorial Day", "range": "May 31", "start": "2027-05-31", "end": "2027-05-31" }
+      ],
+      "instructionalWeeks": [
+        "Jan 19–22", "Jan 25–29", "Feb 1–5", "Feb 8–12", "Feb 16–19",
+        "Feb 22–26", "Mar 1–5", "Mar 8–12", "Mar 15–19", "Mar 22–26",
+        "Apr 5–9", "Apr 12–16", "Apr 19–23", "Apr 26–30", "May 3–7",
+        "May 10–14", "May 17–21", "May 24–28", "Jun 1–4", "Jun 7–11"
+      ],
+      "instructionalWeekCount": 20
+    }
+  },
+  "otherDates": {
+    "firstDaySecondSemester": "2027-01-19",
+    "lastDayFirstSemester": "2027-01-15",
+    "mlkDay": "2027-01-18",
+    "juneteenth": "2027-06-18",
+    "lastDayOfSchoolYear": "2027-06-11"
+  }
+}

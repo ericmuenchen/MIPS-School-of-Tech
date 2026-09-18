@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="MIPS Marketing Homepage" description="Hero, quick facts, and footer for the MIPS marketing site, pill buttons, paint-swatch icons, centered layout" -->
+<helmet>
+  <script src="./ds-base.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</helmet>
+
+<div style="max-width:1120px;margin:0 auto;background:#fff;">
+
+  <header style="display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:1px solid var(--border-default)">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <img src="../../assets/logo-lockup.png" alt="Michigan International Prep School" style="height:40px;">
+    </div>
+    <nav style="display:flex;gap:32px;">
+      <span style="font:600 15px var(--font-body);color:var(--brand-primary);">Home</span>
+      <span style="font:600 15px var(--font-body);color:var(--text-body);">Academics</span>
+      <span style="font:600 15px var(--font-body);color:var(--text-body);">Enrollment</span>
+      <span style="font:600 15px var(--font-body);color:var(--text-body);">About</span>
+    </nav>
+    <x-import component-from-global-scope="MIPSDesignSystem_6fe64d.Button" hint-size="140px,44px">Student Login</x-import>
+  </header>
+
+  <section style="text-align:center;padding:96px 48px 64px;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:40px;left:8%;width:90px;height:60px;background:var(--accent-primary);opacity:0.5;border-radius:50% 50% 45% 55% / 55% 45% 55% 45%;transform:rotate(-8deg);"></div>
+    <div style="position:absolute;bottom:20px;right:10%;width:70px;height:50px;background:var(--accent-primary);opacity:0.5;border-radius:45% 55% 50% 50% / 50% 45% 55% 50%;transform:rotate(12deg);"></div>
+    <h1 style="font:var(--text-display-xl);color:var(--text-headline);max-width:780px;margin:0 auto;position:relative;">Free, K-12 Online School.</h1>
+    <p style="font:var(--text-body-lg);color:var(--text-body);max-width:560px;margin:20px auto 36px;position:relative;">A tuition-free public school built around <em>your</em> student, your pace, your schedule, your fit.</p>
+    <div style="display:flex;gap:16px;justify-content:center;position:relative;">
+      <x-import component-from-global-scope="MIPSDesignSystem_6fe64d.Button" variant="solid" size="lg" hint-size="160px,54px">Get Started</x-import>
+      <x-import component-from-global-scope="MIPSDesignSystem_6fe64d.Button" variant="outline" size="lg" hint-size="160px,54px">Learn More</x-import>
+    </div>
+  </section>
+
+  <section style="padding:64px 48px;text-align:center;">
+    <h2 style="font:var(--text-display-lg);color:var(--text-headline);margin:0 0 8px;">Quick Facts</h2>
+    <p style="font:var(--text-body-lg);color:var(--text-body);margin:0 0 48px;">Everything you need to know, at a glance.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;max-width:1000px;margin:0 auto;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <x-import component-from-global-scope="MIPSDesignSystem_6fe64d.IconSwatch" hint-size="72px,72px"><x-import component="LucideIcon" from="./LucideIcon.jsx" size="38" name="graduation-cap" hint-size="28px,28px"></x-import></x-import>
+        <div style="font:700 18px var(--font-display);color:var(--text-headline);">Tuition-Free</div>
+        <div style="font:var(--text-body-sm);color:var(--text-body);">A real public school, 100% free for Michigan families.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <x-import component-from-global-scope="MIPSDesignSystem_6fe64d.IconSwatch" hint-size="72px,72px"><x-import component="LucideIcon" from="./LucideIcon.jsx" size="38" name="laptop" hint-size="28px,28px"></x-import></x-import>
+        <div style="font:700 18px var(--font-display);color:var(--text-headline);">Fully Online</div>
+        <div style="font:var(--text-body-sm);color:var(--text-body);">Live and self-paced learning from anywhere in Michigan.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        
+        <x-import component-from-global-scope="MIPSDesignSystem_6fe64d.IconSwatch" hint-size="72px,72px"><x-import component="LucideIcon" from="./LucideIcon.jsx" size="38" name="medal" hint-size="28px,28px"></x-import></x-import><div style="font:700 18px var(--font-display);color:var(--text-headline);">K-12</div>
+        <div style="font:var(--text-body-sm);color:var(--text-body);">One school that grows with your student, K through 12.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <x-import component-from-global-scope="MIPSDesignSystem_6fe64d.IconSwatch" hint-size="72px,72px"><x-import component="LucideIcon" from="./LucideIcon.jsx" size="38" name="handshake" hint-size="28px,28px"></x-import></x-import>
+        <div style="font:700 18px var(--font-display);color:var(--text-headline);">Certified Teachers</div>
+        <div style="font:var(--text-body-sm);color:var(--text-body);">Real Michigan-certified teachers, small class sizes.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--brand-primary);color:rgba(255,255,255,0.8);padding:48px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;">
+    <div>
+      <div style="font:700 16px var(--font-display);color:#fff;">MICHIGAN INTERNATIONAL PREP SCHOOL</div>
+      <div style="font:var(--text-body-sm);margin-top:8px;max-width:320px;">A tuition-free, K-12 online public charter school made to fit your student.</div>
+    </div>
+    <div style="display:flex;gap:48px;font:var(--text-body-sm);">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <strong style="color:#fff;">School</strong>
+        <span>About</span><span>Academics</span><span>Enrollment</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <strong style="color:#fff;">Families</strong>
+        <span>Student Login</span><span>Quick Facts</span><span>Contact</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+</body>
+</html>

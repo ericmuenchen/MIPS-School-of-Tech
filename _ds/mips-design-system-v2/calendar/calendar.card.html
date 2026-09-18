@@ -1,0 +1,48 @@
+<!-- @dsCard group="Calendar" viewport="700x300" name="Academic Year 2026–2027" subtitle="Fall & Winter semester terms and breaks. Syllabi cover one semester." -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;padding:20px;background:var(--color-white);font-family:var(--font-ui);}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .card{border:1.5px solid var(--color-gray-300);border-radius:var(--radius-lg);overflow:hidden;}
+  .head{background:var(--color-navy-700);color:var(--color-white);padding:10px 16px;display:flex;align-items:baseline;justify-content:space-between;gap:8px;}
+  .sem{font:var(--text-label);font-weight:700;text-transform:uppercase;letter-spacing:.08em;}
+  .term{font:var(--text-caption);color:var(--color-maize-500);font-weight:700;}
+  .body{padding:12px 16px;}
+  .wk{font:var(--text-caption);color:var(--color-gray-600);margin-bottom:10px;}
+  .wk b{color:var(--color-ink-900);}
+  .brk{display:flex;flex-wrap:wrap;gap:6px;}
+  .chip{font:var(--text-caption);background:var(--color-maize-50);color:var(--color-navy-700);border:1px solid var(--color-maize-300);border-radius:var(--radius-pill);padding:3px 10px;font-weight:600;}
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="card">
+      <div class="head"><span class="sem">Fall · Semester 1</span><span class="term">Aug 25 – Jan 15</span></div>
+      <div class="body">
+        <div class="wk"><b>18 instructional weeks</b></div>
+        <div class="brk">
+          <span class="chip">Labor Day · Sep 4–7</span>
+          <span class="chip">Thanksgiving · Nov 23–27</span>
+          <span class="chip">Winter · Dec 21 – Jan 1</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="head"><span class="sem">Winter · Semester 2</span><span class="term">Jan 19 – Jun 11</span></div>
+      <div class="body">
+        <div class="wk"><b>20 instructional weeks</b></div>
+        <div class="brk">
+          <span class="chip">Presidents' · Feb 15</span>
+          <span class="chip">Spring · Mar 29 – Apr 2</span>
+          <span class="chip">State Testing · Apr 6–23</span>
+          <span class="chip">Memorial · May 31</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

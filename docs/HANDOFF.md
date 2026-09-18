@@ -66,6 +66,7 @@ otherwise hide it and every syllabus would lose its stylesheet.
 | `2026-2027-Course-Catalog.pdf` | PDF catalog, offered as a download. |
 | `School-of-Technology-Program-Guide.pdf` | Program guide, offered as a download. |
 | `_ds/mips-design-system/` | The design system, in full source. Every syllabus and the catalog link its `styles.css`. |
+| `_ds/mips-design-system-v2/` | A verbatim duplicate of the above, for work that should not touch the shipped system. Nothing links it. |
 | `assets/logo/` | School of Technology lockup, reversed lockup, standalone mark. |
 | `assets/course-logos/` | Eleven per-course hexagon marks. |
 | `assets/logo-lockup.png` | The MIPS parent-school lockup. |

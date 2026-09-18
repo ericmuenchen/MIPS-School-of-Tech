@@ -48,6 +48,8 @@ it every syllabus loses its stylesheet.
 - `_ds/mips-design-system/` — the design system, in full source: tokens,
   components, guidelines, the academic calendar, both templates. `styles.css`
   is the only runtime dependency; its `readme.md` is the brand bible.
+- `_ds/mips-design-system-v2/` — a verbatim duplicate of the above, for
+  design system work that should not touch the shipped one. No page links it.
 - `assets/logo/`, `assets/course-logos/` — vector brand marks, each with a README.
 
 ## Brand
