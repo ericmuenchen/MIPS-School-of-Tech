@@ -1,7 +1,7 @@
 # MIPS School of Technology — website
 
 Static, no-build site for the MIPS School of Technology: a landing page, a
-course catalog, and eleven printable course syllabi. No framework, no package
+course offerings, and eleven printable course syllabi. No framework, no package
 manager, no compile step. Files are served as they sit.
 
 Full context: **`docs/HANDOFF.md`**. Read it before any non-trivial change.
@@ -42,7 +42,7 @@ it every syllabus loses its stylesheet.
 - `src/index.template.html` — the landing page's real markup, decoded. This is
   the file you edit; `index.html` is built from it.
 - `tools/index-bundle.py` — extract / build / verify for the pair above.
-- `Course-Catalog.html`, `<Course-Name>.html` — plain hand-authored HTML. Edit
+- `Course-Offerings.html`, `<Course-Name>.html` — plain hand-authored HTML. Edit
   these freely. Each links `_ds/mips-design-system/styles.css` and wraps content
   in `.doc-page` (8.5in, 0.7in padding).
 - `_ds/mips-design-system/` — the design system, in full source: tokens,
@@ -74,10 +74,10 @@ parentheses, or "and"/"to". The middot ( · ) is the workhorse separator.
 
 ## Printing
 
-The syllabi and catalog are print deliverables. Print CSS forces
+The syllabi and offerings are print deliverables. Print CSS forces
 `print-color-adjust: exact` (Chrome disables background graphics by default)
 and converts filled navy/maize elements to outlined ones so a seven-page
-catalog does not empty a cartridge. `.pill` padding is offset by the added
+offerings guide does not empty a cartridge. `.pill` padding is offset by the added
 border width so the page count does not shift.
 
 **If you touch print styles, print to PDF and compare the page count before and

@@ -46,7 +46,7 @@ merging straight to `main` is fine.
 ## 1. What this is
 
 A **static, no-build website** for the MIPS School of Technology: a landing
-page, a course catalog, and eleven printable course syllabi. There is no
+page, the course offerings, and eleven printable course syllabi. There is no
 framework, no package manager, no CI, and no compile step. Files are served
 exactly as they sit in the repository.
 
@@ -61,11 +61,11 @@ otherwise hide it and every syllabus would lose its stylesheet.
 | `index.html` | Landing page: hero, five pathway tracks, eleven course cards, resource CTAs, contact. **Generated — see §2.** |
 | `src/index.template.html` | The landing page's real markup, decoded from the bundle. Edit this, not `index.html`. |
 | `tools/index-bundle.py` | Extracts, rebuilds and verifies the `index.html` / `src/` pair. |
-| `Course-Catalog.html` | The 2026–2027 catalog as a printable HTML document. |
+| `Course-Offerings.html` | The 2026–2027 offerings as a printable HTML document. |
 | `<Course-Name>.html` | Eleven course syllabi, one file each, hand-authored. |
-| `2026-2027-Course-Catalog.pdf` | PDF catalog, offered as a download. |
+| `2026-2027-Course-Offerings.pdf` | PDF of the course offerings, available as a download. |
 | `School-of-Technology-Program-Guide.pdf` | Program guide, offered as a download. |
-| `_ds/mips-design-system/` | The design system, in full source. Every syllabus and the catalog link its `styles.css`. |
+| `_ds/mips-design-system/` | The design system, in full source. Every syllabus and the offerings link its `styles.css`. |
 | `assets/logo/` | School of Technology lockup, reversed lockup, standalone mark. |
 | `assets/course-logos/` | Eleven per-course hexagon marks. |
 | `assets/logo-lockup.png` | The MIPS parent-school lockup. |
@@ -160,9 +160,9 @@ Course fields: `title`, `semester`, `grades`, `syllabus`, and the optional
 `'#'`. Every listed course now has one, so no card should be rendering `'#'` —
 if one is, its `syllabus` key is missing.
 
-### 2b. The syllabi and catalog — plain HTML, edit freely
+### 2b. The syllabi and offerings — plain HTML, edit freely
 
-`Course-Catalog.html` and the eleven `<Course-Name>.html` files are ordinary,
+`Course-Offerings.html` and the eleven `<Course-Name>.html` files are ordinary,
 readable, hand-authored HTML. Each one:
 
 - links the design system: `<link rel="stylesheet" href="_ds/mips-design-system/styles.css">`
@@ -190,7 +190,7 @@ It was consolidated from two Claude Design projects that had diverged:
 | Source project | Covered | Fate in the merge |
 | --- | --- | --- |
 | `6fe64d3a` "MIPS Design System" | `index.html`, marketing surfaces | Base layer: the fuller UI kit (forms, feedback, navigation, `Card`) and the marketing-site template |
-| `7626282b` "…— Course Syllabi" | the syllabi and catalog | Overlaid on top and **wins every conflict** |
+| `7626282b` "…— Course Syllabi" | the syllabi and offerings | Overlaid on top and **wins every conflict** |
 
 The syllabi project was the derived, newer one: same 74 tokens byte-for-byte,
 same five `@import`s in `styles.css`, but more developed components and specimen
@@ -261,7 +261,7 @@ and table cells. Numerals stay plain and factual; invent no statistics.
 
 ## 4. Printing
 
-The syllabi and catalog are meant to be printed, and the print CSS is doing
+The syllabi and offerings are meant to be printed, and the print CSS is doing
 real work. Two things it handles:
 
 1. **Chrome prints with "Background graphics" OFF by default**, which would
@@ -291,7 +291,7 @@ Real, verified, and worth fixing. None are blocking.
    The unit split between the two semesters is settled: **Semester I ends with
    Unit 6** (*Project: Tell a Story*, its weeks 15–18) and **Semester II opens
    with Unit 7** (Bootstrap). No unit is scheduled twice. This matches the
-   catalog and landing-page copy, which describe Semester II as Bootstrap
+   offerings and landing-page copy, which describe Semester II as Bootstrap
    through the final project.
 
    Units 7–10 carry roughly 13 weeks of CodeHS content and the Winter semester
@@ -342,10 +342,10 @@ Real, verified, and worth fixing. None are blocking.
 9. **~~The landing page's Intro to Cybersecurity summary is stale.~~ Fixed.**
    That course was rebuilt on the CodeHS *Fundamentals of Cybersecurity*
    content (modules 1–5); `Intro-to-Cybersecurity.html` and
-   `Course-Catalog.html` were updated to match, and the landing page card now
+   `Course-Offerings.html` were updated to match, and the landing page card now
    is too, through `src/index.template.html` and the §2a build.
 
-   `2026-2027-Course-Catalog.pdf` **was** regenerated from the HTML and is
+   `2026-2027-Course-Offerings.pdf` **was** regenerated from the HTML and is
    current. `School-of-Technology-Program-Guide.pdf` is **not** — see gap 10.
 
    Still open, and related: CyberDefense Pro lists "Pass Intro to Cybersecurity
@@ -373,14 +373,18 @@ Real, verified, and worth fixing. None are blocking.
     > to watch for, then make and break codes, set up and secure a computer, and
     > follow a message across the internet.
 
+    The guide's closing contact line also still says "The course catalog".
+    The school no longer uses "catalog": change it to "The course offerings"
+    in the same re-export.
+
     Longer term, the guide belongs in this repo as hand-authored HTML like the
-    catalog, so it can be edited and re-printed alongside everything else.
+    course offerings, so it can be edited and re-printed alongside everything else.
 
 11. **The program guide PDF still describes the old grade eligibility.**
     Middle school students (grades 6, 7, and 8) may now take only two courses:
     Exploring Technology and Art and Intro to Python. Every other course is
-    grades 9–12. `Course-Catalog.html`, `src/index.template.html` (and the
-    `index.html` built from it), and `2026-2027-Course-Catalog.pdf` were all
+    grades 9–12. `Course-Offerings.html`, `src/index.template.html` (and the
+    `index.html` built from it), and `2026-2027-Course-Offerings.pdf` were all
     updated: the five courses that used to read "Grades 7–12" (Intro to
     Cybersecurity, Ethical Hacker, IT Fundamentals, Web Design and Dev I, Web
     Design and Dev II) now read "Grades 9–12".
@@ -433,16 +437,16 @@ stylesheet path and the bundle unpack.
 3. Add the course to the right track's `courses` array in
    `src/index.template.html`, then `python3 tools/index-bundle.py build` (§2a).
    Do not edit `index.html` itself.
-4. Update `Course-Catalog.html`, then regenerate the catalog PDF from it (see
+4. Update `Course-Offerings.html`, then regenerate the offerings PDF from it (see
    below).
 
-### Regenerating the catalog PDF
+### Regenerating the offerings PDF
 
-`2026-2027-Course-Catalog.pdf` is a headless-Chrome print of
-`Course-Catalog.html` — nothing more. Serve the site, then print the page with
+`2026-2027-Course-Offerings.pdf` is a headless-Chrome print of
+`Course-Offerings.html` — nothing more. Serve the site, then print the page with
 `printBackground` on and `preferCSSPageSize` on so the document's own
 `@page{ size:letter; margin:0.7in }` rule wins, and write the result over the
-existing PDF. Any change to the catalog HTML should be followed by this, or the
+existing PDF. Any change to the offerings HTML should be followed by this, or the
 downloadable PDF drifts. It had drifted by three course descriptions before it
 was last regenerated.
 
@@ -494,7 +498,7 @@ not live in git.
 
 Everything published: all HTML, both PDFs, `assets/`, the CSS tokens, the
 compiled design-system bundle, and these documents. A new account with repo
-access can read, edit the syllabi, edit the catalog, and deploy.
+access can read, edit the syllabi, edit the offerings, and deploy.
 
 ### What does not travel
 

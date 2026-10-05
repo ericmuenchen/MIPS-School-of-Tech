@@ -4,7 +4,7 @@ The design system for **Michigan International Prep School (MIPS)**, a tuition-f
 K-12 online public charter school in Michigan, and its School of Technology.
 
 One system, two surfaces: the **marketing pages** (the School of Technology site)
-and the **printable documents** (course syllabi and the catalog). Where a rule
+and the **printable documents** (course syllabi and the offerings). Where a rule
 differs between them, this file says which surface it applies to.
 
 ## Consuming it
