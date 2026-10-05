@@ -2,7 +2,7 @@
 
 The website for the School of Technology at [Michigan International Prep
 School](https://www.miprepschool.org/) — a tuition-free K-12 online public
-charter school in Michigan. A landing page, the 2026–2027 course catalog, and
+charter school in Michigan. A landing page, the 2026–2027 course offerings, and
 printable syllabi for ten courses across five pathways.
 
 Instructor: Eric Muenchen · `muenchen@miprepschool.org`
@@ -46,5 +46,5 @@ corrupt it. Edit `src/index.template.html` and rebuild:
 python3 tools/index-bundle.py build
 ```
 
-The syllabi and catalog are plain HTML and can be edited directly.
+The syllabi and offerings are plain HTML and can be edited directly.
 `docs/HANDOFF.md` §2 explains the difference.

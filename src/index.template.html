@@ -1073,7 +1073,7 @@ button { font-family: var(--font-ui); }
     .sot-lockup .sot-l2 { font-size: calc(148 * var(--sot-u)); font-weight: 700; letter-spacing: 0.01em; white-space: nowrap; }
     /* Hero watermark: the mark oversized behind the headline. Outline only
        so it reads as maize line art instead of greying out the text. */
-    /* Course honeycomb: the 10 course marks tessellated in the catalog CTA.
+    /* Course honeycomb: the 10 course marks tessellated in the offerings CTA.
        Flat-top hexes, columns 0.75w apart with alternate columns dropped h/2. */
     .course-honeycomb { display: block; width: 100%; max-width: 500px; height: auto; margin: 0 auto; }
     .sot-hero-mark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -1095,7 +1095,7 @@ button { font-family: var(--font-ui); }
       section[style*="padding: 0px 48px 8px"] { padding: 0px 20px 8px !important; }
       #courses { padding: 40px 20px 24px !important; }
       div[style*="grid-template-columns: repeat(2, 1fr)"] { grid-template-columns: 1fr !important; }
-      #catalog, #program-guide { padding: 40px 20px !important; }
+      #offerings, #program-guide { padding: 40px 20px !important; }
       div[style*="padding: 48px; position: relative; overflow: hidden; max-width: 1180px"] { padding: 28px 20px !important; }
       #contact { padding: 24px 20px 48px !important; }
       footer[style*="padding: 48px"] { padding: 32px 20px !important; }
@@ -1229,7 +1229,7 @@ button { font-family: var(--font-ui); }
     </section>
 
 
-    <!-- RESOURCES (nav target): program guide + course catalog -->
+    <!-- RESOURCES (nav target): program guide + course offerings -->
     <div id="resources" style="scroll-margin-top:96px;">
 
     <!-- PROGRAM GUIDE CTA -->
@@ -1246,14 +1246,14 @@ button { font-family: var(--font-ui); }
       </div>
     </section>
 
-    <!-- CATALOG CTA -->
-    <section id="catalog" style="padding:56px 48px;scroll-margin-top:96px;">
+    <!-- OFFERINGS CTA -->
+    <section id="offerings" style="padding:56px 48px;scroll-margin-top:96px;">
       <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px 40px;background:var(--surface-muted);border-radius:var(--radius-lg);border:1px solid var(--border-default);padding:48px;position:relative;overflow:hidden;max-width:1180px;margin:0 auto;">
         <div style="flex:1 1 380px;max-width:520px;position:relative;">
-          <h2 style="font:var(--text-display-md);color:var(--text-headline);margin:0;">The full course catalog</h2>
-          <p style="font:var(--text-body-lg);color:var(--text-body);margin:14px 0 0;">Download the complete 2026–2027 School of Technology catalog with every course description, track, and semester listing in one document.</p>
+          <h2 style="font:var(--text-display-md);color:var(--text-headline);margin:0;">The full course offerings</h2>
+          <p style="font:var(--text-body-lg);color:var(--text-body);margin:14px 0 0;">Download the complete 2026–2027 School of Technology course offerings with every course description, track, and semester listing in one document.</p>
           <div style="margin-top:24px;">
-            <a href="2026-2027-Course-Catalog.pdf" download=""><x-import component-from-global-scope="MIPSDesignSystem_6fe64d.Button" variant="solid" size="lg" hint-size="220px,54px">Download Catalog (PDF)</x-import></a>
+            <a href="2026-2027-Course-Offerings.pdf" download=""><x-import component-from-global-scope="MIPSDesignSystem_6fe64d.Button" variant="solid" size="lg" hint-size="220px,54px">Download Offerings (PDF)</x-import></a>
           </div>
         </div>
         <div style="flex:1 1 500px;position:relative;">
